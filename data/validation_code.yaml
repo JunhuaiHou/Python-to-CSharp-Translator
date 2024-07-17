@@ -1,0 +1,1374 @@
+- python: |
+    def areCharactersUnique(s):
+        checker = 0
+        for i in range(len(s)):
+            val = ord(s[i]) - ord('a')
+            if (checker & (1 << val)) > 0:
+                return False
+            checker |= (1 << val)
+        return True
+    
+    s = "aaabbccdaa"
+    if areCharactersUnique(s):
+        print("Yes")
+    else:
+        print("No")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool AreCharactersUnique(string s)
+        {
+            int checker = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                int val = s[i] - 'a';
+                if ((checker & (1 << val)) > 0)
+                    return false;
+                checker |= (1 << val);
+            }
+            return true;
+        }
+    
+        static void Main(string[] args)
+        {
+            string s = "aaabbccdaa";
+            if (AreCharactersUnique(s))
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("No");
+        }
+    }
+
+- python: |
+    import math
+    
+    def findCount(d):
+        return 9 * (pow(10, d - 1) - pow(9, d - 1))
+    
+    def findCountUpto(d):
+        totalCount = 0
+        for i in range(1, d + 1):
+            totalCount += findCount(i)
+        return totalCount
+    
+    d = 1
+    print(findCountUpto(d))
+    d = 2
+    print(findCountUpto(d))
+    d = 4
+    print(findCountUpto(d))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int FindCount(int d)
+        {
+            return 9 * ((int)Math.Pow(10, d - 1) - (int)Math.Pow(9, d - 1));
+        }
+    
+        static int FindCountUpto(int d)
+        {
+            int totalCount = 0;
+            for (int i = 1; i <= d; i++)
+            {
+                totalCount += FindCount(i);
+            }
+            return totalCount;
+        }
+    
+        static void Main(string[] args)
+        {
+            int d = 1;
+            Console.WriteLine(FindCountUpto(d));
+            d = 2;
+            Console.WriteLine(FindCountUpto(d));
+            d = 4;
+            Console.WriteLine(FindCountUpto(d));
+        }
+    }
+
+- python: |
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.left = None
+            self.right = None
+    
+    def specific_level_order_traversal(root):
+        q = []
+        s = []
+        q.append(root)
+        while len(q) > 0:
+            v = []
+            sz = len(q)
+            for i in range(sz):
+                temp = q.pop(0)
+                v.append(temp.data)
+                if temp.left is not None:
+                    q.append(temp.left)
+                if temp.right is not None:
+                    q.append(temp.right)
+            s.append(v)
+    
+        while len(s) > 0:
+            v = s.pop()
+            i, j = 0, len(v) - 1
+            while i < j:
+                print(v[i], " \u2581 ", v[j], end=" \u2581 ")
+                j -= 1
+                i += 1
+        print(root.data)
+    
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    print("Specific \u2581 Level \u2581 Order \u2581 traversal \u2581 of \u2581 binary \u2581 tree \u2581 is")
+    specific_level_order_traversal(root)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    public class Node
+    {
+        public int Data { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
+    
+        public Node(int data)
+        {
+            this.Data = data;
+            this.Left = null;
+            this.Right = null;
+        }
+    }
+    
+    public class BinaryTree
+    {
+        public static void SpecificLevelOrderTraversal(Node root)
+        {
+            if (root == null) return;
+    
+            Queue<Node> q = new Queue<Node>();
+            Stack<List<int>> s = new Stack<List<int>>();
+            q.Enqueue(root);
+    
+            while (q.Count > 0)
+            {
+                int size = q.Count;
+                List<int> level = new List<int>();
+                for (int i = 0; i < size; i++)
+                {
+                    Node current = q.Dequeue();
+                    level.Add(current.Data);
+    
+                    if (current.Left != null) q.Enqueue(current.Left);
+                    if (current.Right != null) q.Enqueue(current.Right);
+                }
+                s.Push(level);
+            }
+    
+            while (s.Count > 0)
+            {
+                List<int> level = s.Pop();
+                int i = 0, j = level.Count - 1;
+                while (i < j)
+                {
+                    Console.Write($"{level[i]} \u2581 {level[j]} \u2581 ");
+                    i++;
+                    j--;
+                }
+            }
+            Console.WriteLine(root.Data);
+        }
+    
+        static void Main(string[] args)
+        {
+            Node root = new Node(1);
+            root.Left = new Node(2);
+            root.Right = new Node(3);
+            Console.WriteLine("Specific \u2581 Level \u2581 Order \u2581 traversal \u2581 of \u2581 binary \u2581 tree \u2581 is:");
+            SpecificLevelOrderTraversal(root);
+        }
+    }
+
+- python: |
+    def printLargestString(s, l, r):
+        freq = [0] * 26
+        l -= 1
+        r -= 1
+        for i in range(min(l, r), max(l, r) + 1):
+            freq[ord(s[i]) - ord('a')] += 1
+        ans = ""
+        for i in range(25, -1, -1):
+            while freq[i]:
+                ans += chr(ord('a') + i)
+                freq[i] -= 1
+        return ans
+    
+    if __name__ == "__main__":
+        s = "striver"
+        l = 3
+        r = 5
+        print(printLargestString(s, l, r))
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static string PrintLargestString(string s, int l, int r)
+        {
+            int[] freq = new int[26];
+            l -= 1; 
+            r -= 1;
+            for (int i = Math.Min(l, r); i <= Math.Max(l, r); i++)
+            {
+                freq[s[i] - 'a']++;
+            }
+    
+            string ans = "";
+            for (int i = 25; i >= 0; i--)
+            {
+                while (freq[i] > 0)
+                {
+                    ans += (char)('a' + i);
+                    freq[i]--;
+                }
+            }
+            return ans;
+        }
+    
+        static void Main(string[] args)
+        {
+            string s = "striver";
+            int l = 3;
+            int r = 5;
+            Console.WriteLine(PrintLargestString(s, l, r));
+        }
+    }
+
+- python: |
+    import math
+    
+    def farey(n):
+        x1 = 0
+        y1 = 1
+        x2 = 1
+        y2 = n
+        print(f"{x1}/{y1}", end=" \u2581 ")
+        print(f"{x2}/{y2}", end=" \u2581 ")
+        x = 0
+        y = 0
+        while y != 1.0:
+            x = math.floor((y1 + n) / y2) * x2 - x1
+            y = math.floor((y1 + n) / y2) * y2 - y1
+            print(f"{x}/{y}", end=" \u2581 ")
+            x1 = x2
+            x2 = x
+            y1 = y2
+            y2 = y
+    
+    n = 7
+    print(f"Farey Sequence of order {n} is: ")
+    farey(n)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Farey(int n)
+        {
+            int x1 = 0, y1 = 1, x2 = 1, y2 = n;
+            Console.Write($"{x1}/{y1} \u2581 {x2}/{y2} \u2581 ");
+            int x = 0, y = 0;
+            while (y != 1)
+            {
+                x = (int)Math.Floor((y1 + (double)n) / y2) * x2 - x1;
+                y = (int)Math.Floor((y1 + (double)n) / y2) * y2 - y1;
+                Console.Write($"{x}/{y} \u2581 ");
+                x1 = x2;
+                x2 = x;
+                y1 = y2;
+                y2 = y;
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 7;
+            Console.WriteLine($"Farey Sequence of order {n} is:");
+            Farey(n);
+        }
+    }
+
+- python: |
+    maxSize = 50
+    dp = [0] * maxSize
+    v = [0] * maxSize
+    
+    def expectedSteps(x):
+        if x == 0:
+            return 0
+        if x <= 5:
+            return 6
+        if v[x]:
+            return dp[x]
+        v[x] = 1
+        dp[x] = 1 + (expectedSteps(x - 1) + expectedSteps(x - 2) + expectedSteps(x - 3) + expectedSteps(x - 4) + expectedSteps(x - 5) + expectedSteps(x - 6)) / 6
+        return dp[x]
+    
+    n = 10
+    print(round(expectedSteps(n - 1), 5))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int maxSize = 50;
+        static double[] dp = new double[maxSize];
+        static int[] v = new int[maxSize];
+    
+        static double ExpectedSteps(int x)
+        {
+            if (x == 0) return 0;
+            if (x <= 5) return 6;
+            if (v[x] == 1) return dp[x];
+            v[x] = 1;
+            dp[x] = 1 + (ExpectedSteps(x - 1) + ExpectedSteps(x - 2) + ExpectedSteps(x - 3) + ExpectedSteps(x - 4) + ExpectedSteps(x - 5) + ExpectedSteps(x - 6)) / 6;
+            return dp[x];
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 10;
+            Console.WriteLine(Math.Round(ExpectedSteps(n - 1), 5));
+        }
+    }
+
+- python: |
+    def maximumNumberDistinctPrimeRange(m, n):
+        factorCount = [0] * (n + 1)
+        prime = [False] * (n + 1)
+        for i in range(n + 1):
+            factorCount[i] = 0
+            prime[i] = True
+    
+        for i in range(2, n + 1):
+            if prime[i] == True:
+                factorCount[i] = 1
+                for j in range(i * 2, n + 1, i):
+                    factorCount[j] += 1
+                    prime[j] = False
+    
+        max = factorCount[m]
+        num = m
+        for i in range(m, n + 1):
+            if factorCount[i] > max:
+                max = factorCount[i]
+                num = i
+    
+        return num
+    
+    if __name__ == "__main__":
+        m = 4
+        n = 6
+        print(maximumNumberDistinctPrimeRange(m, n))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int MaximumNumberDistinctPrimeRange(int m, int n)
+        {
+            long[] factorCount = new long[n + 1];
+            bool[] prime = new bool[n + 1];
+            for (int i = 0; i <= n; i++)
+            {
+                factorCount[i] = 0;
+                prime[i] = true;
+            }
+    
+            for (int i = 2; i <= n; i++)
+            {
+                if (prime[i] == true)
+                {
+                    factorCount[i] = 1;
+                    for (int j = i * 2; j <= n; j += i)
+                    {
+                        factorCount[j]++;
+                        prime[j] = false;
+                    }
+                }
+            }
+    
+            int max = (int)factorCount[m];
+            int num = m;
+            for (int i = m; i <= n; i++)
+            {
+                if (factorCount[i] > max)
+                {
+                    max = (int)factorCount[i];
+                    num = i;
+                }
+            }
+    
+            return num;
+        }
+    
+        static void Main(string[] args)
+        {
+            int m = 4, n = 6;
+            Console.WriteLine(MaximumNumberDistinctPrimeRange(m, n));
+        }
+    }
+
+- python: |
+    def isPalindrome(s):
+        l = 0
+        h = len(s) - 1
+        while h > l:
+            if s[l] != s[h]:
+                return False
+            l += 1
+            h -= 1
+        return True
+    
+    def minRemovals(s):
+        if not s:
+            return 0
+        if isPalindrome(s):
+            return 0  
+        return 2  
+    
+    print(minRemovals("010010"))
+    print(minRemovals("0100101"))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool IsPalindrome(string s)
+        {
+            int l = 0;
+            int h = s.Length - 1;
+            while (h > l)
+            {
+                if (s[l] != s[h])
+                    return false;
+                l++;
+                h--;
+            }
+            return true;
+        }
+    
+        static int MinRemovals(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return 0;
+            if (IsPalindrome(s))
+                return 0;
+            return 2;
+        }
+    
+        static void Main(string[] args)
+        {
+            Console.WriteLine(MinRemovals("010010"));
+            Console.WriteLine(MinRemovals("0100101"));
+        }
+    }
+
+- python: |
+    def find(s1, s2):
+        len__ = len(s1)
+        len_1 = len(s2)
+        if len__ != len_1:
+            return False
+        
+        d = [0 for i in range(len__)]
+        d[0] = ord(s2[0]) - ord(s1[0])
+        
+        for i in range(1, len__, 1):
+            if s1[i] > s2[i]:
+                return False
+            else:
+                d[i] = ord(s2[i]) - ord(s1[i])
+        
+        for i in range(len__ - 1):
+            if d[i] < d[i + 1]:
+                return False
+        
+        return True
+    
+    if __name__ == '__main__':
+        s1 = "abcd"
+        s2 = "bcdd"
+        if find(s1, s2):
+            print("Yes")
+        else:
+            print("No")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool Find(string s1, string s2)
+        {
+            int len = s1.Length;
+            int len1 = s2.Length;
+    
+            if (len != len1)
+            {
+                return false;
+            }
+    
+            int[] d = new int[len];
+            d[0] = s2[0] - s1[0];
+    
+            for (int i = 1; i < len; i++)
+            {
+                if (s1[i] > s2[i])
+                {
+                    return false;
+                }
+                else
+                {
+                    d[i] = s2[i] - s1[i];
+                }
+            }
+    
+            for (int i = 0; i < len - 1; i++)
+            {
+                if (d[i] < d[i + 1])
+                {
+                    return false;
+                }
+            }
+    
+            return true;
+        }
+    
+        static void Main(string[] args)
+        {
+            string s1 = "abcd";
+            string s2 = "bcdd";
+            if (Find(s1, s2))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
+    }
+
+- python: |
+    def maxSquare(b, m):
+        return (b // m - 1) * (b // m) // 2
+    
+    b = 10
+    m = 2
+    print(int(maxSquare(b, m)))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int MaxSquare(int b, int m)
+        {
+            return (b / m - 1) * (b / m) / 2;
+        }
+    
+        static void Main(string[] args)
+        {
+            int b = 10;
+            int m = 2;
+            Console.WriteLine(MaxSquare(b, m));
+        }
+    }
+
+- python: |
+    def LCSubStr(X, Y, m, n):
+        LCSuff = [[0 for k in range(n + 1)] for l in range(m + 1)]
+        result = 0
+        for i in range(m + 1):
+            for j in range(n + 1):
+                if i == 0 or j == 0:
+                    LCSuff[i][j] = 0
+                elif X[i - 1] == Y[j - 1]:
+                    LCSuff[i][j] = LCSuff[i - 1][j - 1] + 1
+                    result = max(result, LCSuff[i][j])
+                else:
+                    LCSuff[i][j] = 0
+        return result
+    
+    X = 'OldSite: GeeksforGeeks.org'
+    Y = 'NewSite: GeeksQuiz.com'
+    m = len(X)
+    n = len(Y)
+    print('Length of Longest Common Substring is', LCSubStr(X, Y, m, n))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int LCSubStr(string X, string Y, int m, int n)
+        {
+            int[,] LCSuff = new int[m + 1, n + 1];
+            int result = 0;
+            for (int i = 0; i <= m; i++)
+            {
+                for (int j = 0; j <= n; j++)
+                {
+                    if (i == 0 || j == 0)
+                        LCSuff[i, j] = 0;
+                    else if (X[i - 1] == Y[j - 1])
+                    {
+                        LCSuff[i, j] = LCSuff[i - 1, j - 1] + 1;
+                        result = Math.Max(result, LCSuff[i, j]);
+                    }
+                    else
+                        LCSuff[i, j] = 0;
+                }
+            }
+            return result;
+        }
+    
+        static void Main(string[] args)
+        {
+            string X = "OldSite: GeeksforGeeks.org";
+            string Y = "NewSite: GeeksQuiz.com";
+            int m = X.Length;
+            int n = Y.Length;
+            Console.WriteLine("Length of Longest Common Substring is " + LCSubStr(X, Y, m, n));
+        }
+    }
+
+- python: |
+    def bitsAreInAltPatrnInGivenTRange(n, l, r):
+        num = n >> (l - 1)
+        prev = num & 1
+        num = num >> 1
+        for i in range(1, (r - l)):
+            curr = num & 1
+            if (curr == prev):
+                return False
+            prev = curr
+            num = num >> 1
+        return True
+    
+    if __name__ == "__main__":
+        n = 18
+        l = 1
+        r = 3
+        if (bitsAreInAltPatrnInGivenTRange(n, l, r)):
+            print("Yes")
+        else:
+            print("No")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool BitsAreInAltPatternInGivenRange(int n, int l, int r)
+        {
+            int num = n >> (l - 1);
+            int prev = num & 1;
+            num = num >> 1;
+            for (int i = 1; i <= (r - l); i++)
+            {
+                int curr = num & 1;
+                if (curr == prev)
+                {
+                    return false;
+                }
+                prev = curr;
+                num = num >> 1;
+            }
+            return true;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 18;
+            int l = 1;
+            int r = 3;
+            if (BitsAreInAltPatternInGivenRange(n, l, r))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
+    }
+
+- python: |
+    import math
+    
+    MAX = 1000000  
+    primes = []
+    
+    def sieve():
+        n = MAX
+        nNew = n // 2
+        marked = [False] * (nNew + 100)
+        sqrt_n = int(math.sqrt(n))
+        for i in range(1, (sqrt_n - 1) // 2 + 1):
+            for j in range((i * (i + 1)) * 2, nNew, 2 * i + 1):
+                marked[j] = True
+        primes.append(2)
+        for i in range(1, nNew):
+            if not marked[i]:
+                primes.append(2 * i + 1)
+    
+    def primeLcm(arr):
+        factors = [0] * (MAX + 1)
+        for num in arr:
+            temp = num
+            for prime in primes:
+                if prime * prime > num:
+                    break
+                if temp % prime == 0:
+                    while temp % prime == 0:
+                        temp //= prime
+                    factors[prime] = 1
+            if temp > 1:
+                factors[temp] = 1
+        
+        if factors[2] == 1:
+            print("2 _", end=" ")
+        for i in range(3, MAX, 2):
+            if factors[i] == 1:
+                print(f"{i} _", end=" ")
+    
+    sieve()
+    arr = [20, 10, 15, 60]
+    primeLcm(arr)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static int MAX = 1000000;
+        static List<int> primes = new List<int>();
+    
+        static void Sieve()
+        {
+            int n = MAX;
+            int nNew = n / 2;
+            bool[] marked = new bool[nNew + 100];
+            int sqrtN = (int)Math.Sqrt(n);
+            for (int i = 1; i <= (sqrtN - 1) / 2; i++)
+            {
+                for (int j = (i * (i + 1)) << 1; j <= nNew; j += 2 * i + 1)
+                {
+                    marked[j] = true;
+                }
+            }
+            primes.Add(2);
+            for (int i = 1; i <= nNew; i++)
+            {
+                if (!marked[i])
+                {
+                    primes.Add(2 * i + 1);
+                }
+            }
+        }
+    
+        static void PrimeLCM(int[] arr)
+        {
+            int[] factors = new int[MAX + 1];
+            foreach (var num in arr)
+            {
+                int temp = num;
+                foreach (var prime in primes)
+                {
+                    if (prime * prime > num) break;
+                    if (temp % prime == 0)
+                    {
+                        while (temp % prime == 0)
+                        {
+                            temp /= prime;
+                        }
+                        factors[prime] = 1;
+                    }
+                }
+                if (temp > 1) 
+                {
+                    factors[temp] = 1;
+                }
+            }
+    
+            if (factors[2] == 1)
+            {
+                Console.Write("2 _ ");
+            }
+            for (int i = 3; i < MAX; i += 2)
+            {
+                if (factors[i] == 1)
+                {
+                    Console.Write($"{i} _ ");
+                }
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            Sieve();
+            int[] arr = { 20, 10, 15, 60 };
+            PrimeLCM(arr);
+        }
+    }
+
+- python: |
+    def nthTerm(n):
+        return (n * n) + (n * n * n)
+    
+    n = 4
+    print(nthTerm(n))
+
+  csharp: |
+    using System;
+    
+    class Program {
+        public static int NthTerm(int n) {
+            return (n * n) + (n * n * n);
+        }
+    
+        static void Main(string[] args) {
+            int n = 4;
+            Console.Write(NthTerm(n));
+        }
+    }
+
+- python: |
+    def findFourElements(arr, n, X):
+        mp = {}
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                mp[arr[i] + arr[j]] = [i, j]
+    
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                summ = arr[i] + arr[j]
+                if (X - summ) in mp:
+                    p = mp[X - summ]
+                    if p[0] != i and p[0] != j and p[1] != i and p[1] != j:
+                        print(arr[i], ", \u2581", arr[j], ", \u2581", arr[p[0]], ", \u2581", arr[p[1]], sep=" ")
+                        return
+    
+    # Example usage
+    arr = [10, 20, 30, 40, 1, 2]
+    n = len(arr)
+    X = 91
+    findFourElements(arr, n, X)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    public class GFG
+    {
+        class Pair
+        {
+            public int First, Second;
+            public Pair(int first, int second)
+            {
+                this.First = first;
+                this.Second = second;
+            }
+        }
+    
+        static void FindFourElements(int[] arr, int n, int X)
+        {
+            Dictionary<int, Pair> mp = new Dictionary<int, Pair>();
+            
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    mp[arr[i] + arr[j]] = new Pair(i, j);
+                }
+            }
+            
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    int sum = arr[i] + arr[j];
+                    if (mp.ContainsKey(X - sum))
+                    {
+                        Pair p = mp[X - sum];
+                        if (p.First != i && p.First != j && p.Second != i && p.Second != j)
+                        {
+                            Console.Write($"{arr[i]}, \u2581 {arr[j]}, \u2581 {arr[p.First]}, \u2581 {arr[p.Second]}");
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    
+        public static void Main(string[] args)
+        {
+            int[] arr = { 10, 20, 30, 40, 1, 2 };
+            int n = arr.Length;
+            int X = 91;
+            FindFourElements(arr, n, X);
+        }
+    }
+
+- python: |
+    import math as mt
+    
+    def solveQuery(start, end, arr):
+        frequency = dict()
+        for i in range(start, end + 1):
+            if arr[i] in frequency.keys():
+                frequency[arr[i]] += 1
+            else:
+                frequency[arr[i]] = 1
+        
+        count = 0
+        for x in frequency:
+            if x == frequency[x]:
+                count += 1
+        
+        return count
+    
+    A = [1, 2, 2, 3, 3, 3]
+    n = len(A)
+    queries = [[0, 1], [1, 1], [0, 2], [1, 3], [3, 5], [0, 5]]
+    q = len(queries)
+    
+    for i in range(q):
+        start = queries[i][0]
+        end = queries[i][1]
+        print("Answer for Query", (i + 1), "= ", solveQuery(start, end, A))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static int SolveQuery(int start, int end, int[] arr)
+        {
+            Dictionary<int, int> frequency = new Dictionary<int, int>();
+            for (int i = start; i <= end; i++)
+            {
+                if (frequency.ContainsKey(arr[i]))
+                {
+                    frequency[arr[i]] += 1;
+                }
+                else
+                {
+                    frequency[arr[i]] = 1;
+                }
+            }
+    
+            int count = 0;
+            foreach (var item in frequency)
+            {
+                if (item.Key == item.Value)
+                {
+                    count++;
+                }
+            }
+    
+            return count;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] A = { 1, 2, 2, 3, 3, 3 };
+            int[,] queries = { { 0, 1 }, { 1, 1 }, { 0, 2 }, { 1, 3 }, { 3, 5 }, { 0, 5 } };
+            
+            for (int i = 0; i < queries.GetLength(0); i++)
+            {
+                int start = queries[i, 0];
+                int end = queries[i, 1];
+                Console.WriteLine($"Answer for Query {i + 1} = {SolveQuery(start, end, A)}");
+            }
+        }
+    }
+
+- python: |
+    def type1(arr, start, limit):
+        for i in range(start, limit + 1):
+            arr[i] += 1
+    
+    def type2(arr, query, start, limit):
+        for i in range(start, limit + 1):
+            if query[i][0] == 1:
+                type1(arr, query[i][1], query[i][2])
+            elif query[i][0] == 2:
+                type2(arr, query, query[i][1], query[i][2])
+    
+    n = 5
+    m = 5
+    arr = [0 for i in range(n + 1)]
+    temp = [1, 1, 2, 1, 4, 5, 2, 1, 2, 2, 1, 3, 2, 3, 4]
+    query = [[0 for i in range(3)] for j in range(6)]
+    j = 0
+    
+    for i in range(1, m + 1):
+        query[i][0] = temp[j]
+        j += 1
+        query[i][1] = temp[j]
+        j += 1
+        query[i][2] = temp[j]
+        j += 1
+    
+    for i in range(1, m + 1):
+        if query[i][0] == 1:
+            type1(arr, query[i][1], query[i][2])
+        elif query[i][0] == 2:
+            type2(arr, query, query[i][1], query[i][2])
+    
+    for i in range(1, n + 1):
+        print(arr[i], end=" ")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Type1(int[] arr, int start, int limit)
+        {
+            for (int i = start; i <= limit; i++)
+            {
+                arr[i]++;
+            }
+        }
+    
+        static void Type2(int[] arr, int[][] query, int start, int limit)
+        {
+            for (int i = start; i <= limit; i++)
+            {
+                if (query[i][0] == 1)
+                {
+                    Type1(arr, query[i][1], query[i][2]);
+                }
+                else if (query[i][0] == 2)
+                {
+                    Type2(arr, query, query[i][1], query[i][2]);
+                }
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 5;
+            int m = 5;
+            int[] arr = new int[n + 1];
+            int[] temp = { 1, 1, 2, 1, 4, 5, 2, 1, 2, 2, 1, 3, 2, 3, 4 };
+            int[][] query = new int[6][];
+            for (int i = 0; i < 6; i++)
+            {
+                query[i] = new int[3];
+            }
+    
+            int j = 0;
+            for (int i = 1; i <= m; i++)
+            {
+                query[i][0] = temp[j++];
+                query[i][1] = temp[j++];
+                query[i][2] = temp[j++];
+            }
+    
+            for (int i = 1; i <= m; i++)
+            {
+                if (query[i][0] == 1)
+                {
+                    Type1(arr, query[i][1], query[i][2]);
+                }
+                else if (query[i][0] == 2)
+                {
+                    Type2(arr, query, query[i][1], query[i][2]);
+                }
+            }
+    
+            for (int i = 1; i <= n; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+- python: |
+    MAX = 100005
+    
+    def addPrimes():
+        n = MAX
+        prime = [True for i in range(n + 1)]
+        for p in range(2, int(n**0.5) + 1):
+            if prime[p]:
+                for i in range(p * p, n + 1, p):
+                    prime[i] = False
+        ans = []
+        for p in range(2, n + 1):
+            if prime[p]:
+                ans.append(p)
+        return ans
+    
+    def is_prime(n):
+        return n in [3, 5, 7]
+    
+    def find_Sum(n):
+        Sum = 0
+        v = addPrimes()
+        for i in v:
+            flag = 1
+            a = i
+            while a != 0:
+                d = a % 10
+                a = a // 10
+                if is_prime(d):
+                    flag = 0
+                    break
+            if flag == 1:
+                n -= 1
+                Sum += i
+                if n == 0:
+                    break
+        return Sum
+    
+    n = 7
+    print(find_Sum(n))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        const int MAX = 100005;
+    
+        static List<int> AddPrimes()
+        {
+            bool[] prime = new bool[MAX + 1];
+            for (int i = 2; i <= MAX; i++)
+            {
+                prime[i] = true;
+            }
+    
+            for (int p = 2; p * p <= MAX; p++)
+            {
+                if (prime[p])
+                {
+                    for (int i = p * p; i <= MAX; i += p)
+                    {
+                        prime[i] = false;
+                    }
+                }
+            }
+    
+            List<int> ans = new List<int>();
+            for (int p = 2; p <= MAX; p++)
+            {
+                if (prime[p])
+                {
+                    ans.Add(p);
+                }
+            }
+            return ans;
+        }
+    
+        static bool IsPrime(int n)
+        {
+            return n == 3 || n == 5 || n == 7;
+        }
+    
+        static int FindSum(int n)
+        {
+            int sum = 0;
+            List<int> v = AddPrimes();
+            foreach (int i in v)
+            {
+                int flag = 1;
+                int a = i;
+                while (a != 0)
+                {
+                    int d = a % 10;
+                    a = a / 10;
+                    if (IsPrime(d))
+                    {
+                        flag = 0;
+                        break;
+                    }
+                }
+                if (flag == 1)
+                {
+                    n--;
+                    sum += i;
+                    if (n == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            return sum;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 7;
+            Console.WriteLine(FindSum(n));
+        }
+    }
+
+- python: |
+    def maxNumber(string, n):
+        freq = [0, 0]
+        for i in range(n):
+            if (string[i] == 'z'):
+                freq[0] += 1
+            elif (string[i] == 'n'):
+                freq[1] += 1
+    
+        num = ""
+        for i in range(freq[1]):
+            num += '1'
+        for i in range(freq[0]):
+            num += '0'
+        return num
+    
+    if __name__ == "__main__":
+        string = "roenenzooe"
+        n = len(string)
+        print(maxNumber(string, n))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static string MaxNumber(string str, int n)
+        {
+            int[] freq = new int[2];
+            foreach (char ch in str)
+            {
+                if (ch == 'z')
+                    freq[0]++;
+                else if (ch == 'n')
+                    freq[1]++;
+            }
+    
+            string num = string.Empty;
+            for (int i = 0; i < freq[1]; i++)
+                num += '1';
+            for (int i = 0; i < freq[0]; i++)
+                num += '0';
+                
+            return num;
+        }
+    
+        static void Main(string[] args)
+        {
+            string str = "roenenzooe";
+            int n = str.Length;
+            Console.WriteLine(MaxNumber(str, n));
+        }
+    }
+
+- python: |
+    def partition(arr, low, high):
+        pivot = arr[high]
+        i = low - 1
+        for j in range(low, high):
+            if arr[j] <= pivot:
+                i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+        arr[i+1], arr[high] = arr[high], arr[i+1]
+        return i + 1
+    
+    def quickSort(arr, low, high):
+        if low < high:
+            pi = partition(arr, low, high)
+            quickSort(arr, low, pi - 1)
+            quickSort(arr, pi + 1, high)
+    
+    def printArray(arr, size):
+        for i in range(size):
+            print(arr[i], end=" ")
+        print()
+    
+    arr = [10, 7, 8, 9, 1, 5]
+    n = len(arr)
+    quickSort(arr, 0, n - 1)
+    print("Sorted array:")
+    printArray(arr, n)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 10, 7, 8, 9, 1, 5 };
+            int n = arr.Length;
+            QuickSort(arr, 0, n - 1);
+            Console.WriteLine("Sorted array:");
+            PrintArray(arr, n);
+        }
+    
+        static int Partition(int[] arr, int low, int high)
+        {
+            int pivot = arr[high];
+            int i = low - 1;
+            for (int j = low; j < high; j++)
+            {
+                if (arr[j] <= pivot)
+                {
+                    i++;
+                    Swap(ref arr[i], ref arr[j]);
+                }
+            }
+            Swap(ref arr[i + 1], ref arr[high]);
+            return i + 1;
+        }
+    
+        static void QuickSort(int[] arr, int low, int high)
+        {
+            if (low < high)
+            {
+                int pi = Partition(arr, low, high);
+                QuickSort(arr, low, pi - 1);
+                QuickSort(arr, pi + 1, high);
+            }
+        }
+    
+        static void PrintArray(int[] arr, int size)
+        {
+            for (int i = 0; i < size; i++)
+                Console.Write(arr[i] + " ");
+            Console.WriteLine();
+        }
+    
+        static void Swap(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+    }

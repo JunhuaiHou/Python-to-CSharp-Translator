@@ -1,0 +1,4827 @@
+- python: |
+          num = int(input("Enter a number: "))
+          print(num, " ", type(num)) 
+          floatNum = float(input("Enter a decimal number: "))
+          print(floatNum, " ", type(floatNum))
+  csharp: |
+          Console.Write("Enter a number: ");
+          int num = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine(num + " " + num.GetType());
+          Console.Write("Enter a decimal number: ");
+          double floatNum = Convert.ToDouble(Console.ReadLine());
+          Console.WriteLine(floatNum + " " + floatNum.GetType());
+
+- python: |
+          print('Hello, World!')
+  csharp: |
+          Console.WriteLine("Hello, World!");
+
+- python: |
+          val = input('Enter your value: ')
+          print(val)
+  csharp: |
+          Console.WriteLine("Enter your value: ");
+          string val = Console.ReadLine();
+          Console.WriteLine(val);
+
+- python: |
+          num = int(input("Enter a number: "))
+          print(num, " ", type(num)) 
+          floatNum = float(input("Enter a decimal number: "))
+          print(floatNum, " ", type(floatNum))
+  csharp: |
+          Console.Write("Enter a number: ");
+          int num = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine(num + " " + num.GetType());
+          Console.Write("Enter a decimal number: ");
+          double floatNum = Convert.ToDouble(Console.ReadLine());
+          Console.WriteLine(floatNum + " " + floatNum.GetType());
+
+- python: |
+          print(5/5)
+          print(10/2)
+          print(-10/2)
+          print(20.0/2)
+  csharp: |
+          Console.WriteLine(5 / 5);
+          Console.WriteLine(10 / 2);
+          Console.WriteLine(-10 / 2);
+          Console.WriteLine(20.0 / 2);
+
+- python: |
+      a = 9
+      b = 4
+      add = a + b
+      sub = a - b
+      mul = a * b
+      mod = a % b
+      p = a ** b
+      print(add)
+      print(sub)
+      print(mul)
+      print(mod)
+      print(p)
+  csharp: |
+      int a = 9;
+      int b = 4;
+      int add = a + b;
+      int sub = a - b;
+      int mul = a * b;
+      int mod = a % b;
+      double p = Math.Pow(a, b); 
+      Console.WriteLine(add);
+      Console.WriteLine(sub);
+      Console.WriteLine(mul);
+      Console.WriteLine(mod);
+      Console.WriteLine(p);
+
+- python: |
+      a = 13
+      b = 33
+      print(a > b)
+      print(a < b)
+      print(a == b)
+      print(a != b)
+      print(a >= b)
+      print(a <= b)
+  csharp: |
+      int a = 13;
+      int b = 33;
+      Console.WriteLine(a > b);
+      Console.WriteLine(a < b);
+      Console.WriteLine(a == b);
+      Console.WriteLine(a != b);
+      Console.WriteLine(a >= b);
+      Console.WriteLine(a <= b);
+
+- python: |
+    def main():
+        name = input("Enter your name: ")
+        age = int(input("Enter your age: "))
+    
+        age_in_5_years = age + 5
+        print(f"Hello, {name}! In 5 years, you will be {age_in_5_years} years old.")
+    
+    if __name__ == "__main__":
+        main()
+
+  csharp: |
+    using System; 
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+    
+            Console.Write("Enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+    
+            int ageIn5Years = age + 5;
+            Console.WriteLine($"Hello, {name}! In 5 years, you will be {ageIn5Years} years old.");
+        }
+    }
+
+- python: |  
+    from statistics import mean, median, mode
+    
+    def get_input():
+        return [float(x) for x in input("Enter numbers separated by space: ").split()]
+    
+    def main():
+        numbers = get_input()
+        mean_value = mean(numbers)
+        median_value = median(numbers)
+        mode_value = mode(numbers)
+        print(f"Mean: {mean_value}")
+        print(f"Median: {median_value}")
+        print(f"Mode: {mode_value}")
+    
+    if __name__ == "__main__":
+        main()
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    class Program
+    {
+        static void Main()
+        {
+            var numbers = GetInput();
+            var mean = numbers.Average();
+            var median = GetMedian(numbers);
+            var mode = GetMode(numbers);
+    
+            Console.WriteLine($"Mean: {mean}");
+            Console.WriteLine($"Median: {median}");
+            Console.WriteLine($"Mode: {mode}");
+        }
+    
+        static List<double> GetInput()
+        {
+            Console.Write("Enter numbers separated by space: ");
+            return Console.ReadLine().Split().Select(double.Parse).ToList();
+        }
+    
+        static double GetMedian(List<double> numbers)
+        {
+            int size = numbers.Count;
+            numbers.Sort();
+    
+            if (size % 2 == 0)
+            {
+                return (numbers[size / 2 - 1] + numbers[size / 2]) / 2;
+            }
+            else
+            {
+                return numbers[size / 2];
+            }
+        }
+    
+        static double GetMode(List<double> numbers)
+        {
+            return numbers.GroupBy(n => n)
+                          .OrderByDescending(g => g.Count())
+                          .ThenBy(g => g.Key)
+                          .Select(g => g.Key).FirstOrDefault();
+        }
+    }
+
+- python: |  
+    def main():
+        number = int(input("Enter a number: "))
+        if number % 2 == 0:
+            print(f"{number} is even.")
+        else:
+            print(f"{number} is odd.")
+    
+    if __name__ == "__main__":
+        main()
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Enter a number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+    
+            if (number % 2 == 0)
+            {
+                Console.WriteLine($"{number} is even.");
+            }
+            else
+            {
+                Console.WriteLine($"{number} is odd.");
+            }
+        }
+    }
+
+- python: |  
+    def bubble_sort(arr):
+    n = len(arr)
+    # Traverse through all elements in the array
+    for i in range(n):
+        # Last i elements are already in place, no need to check them
+        for j in range(0, n-i-1):
+            # Traverse the array from 0 to n-i-1
+            # Swap if the element found is greater than the next element
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+  csharp: |
+    static void BubbleSort(int[] arr)
+    {
+        int n = arr.Length;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    // Swap arr[j] and arr[j + 1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+- python: |  
+    class Vehicle:
+      def __init__(self, make, model, year, fuel_efficiency):
+          self.make = make
+          self.model = model
+          self.year = year
+          self.fuel_efficiency = fuel_efficiency  # in miles per gallon (mpg)
+  
+      def __str__(self):
+          return f"{self.year} {self.make} {self.model}"
+  
+      def calculate_fuel_used(self, miles):
+          return miles / self.fuel_efficiency
+
+    class Car(Vehicle):
+        def __init__(self, make, model, year, fuel_efficiency, seating_capacity):
+            super().__init__(make, model, year, fuel_efficiency)
+            self.seating_capacity = seating_capacity
+  
+        def __str__(self):
+            return f"{super().__str__()} (Car, Seats: {self.seating_capacity})"
+  
+    class Truck(Vehicle):
+        def __init__(self, make, model, year, fuel_efficiency, payload_capacity):
+            super().__init__(make, model, year, fuel_efficiency)
+            self.payload_capacity = payload_capacity  # in pounds
+  
+        def __str__(self):
+            return f"{super().__str__()} (Truck, Payload: {self.payload_capacity} lbs)"
+  
+    class VehicleRegistry:
+        def __init__(self):
+            self.vehicles = []
+  
+        def register_vehicle(self, vehicle):
+            self.vehicles.append(vehicle)
+            print(f"Vehicle registered: {vehicle}")
+    
+        def list_vehicles(self):
+            if self.vehicles:
+                print("Registered Vehicles:")
+                for vehicle in self.vehicles:
+                    print(vehicle)
+            else:
+                print("No registered vehicles.")
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    public class Vehicle
+    {
+        public string Make { get; }
+        public string Model { get; }
+        public int Year { get; }
+        public double FuelEfficiency { get; } // in miles per gallon (mpg)
+    
+        public Vehicle(string make, string model, int year, double fuelEfficiency)
+        {
+            Make = make;
+            Model = model;
+            Year = year;
+            FuelEfficiency = fuelEfficiency;
+        }
+    
+        public override string ToString()
+        {
+            return $"{Year} {Make} {Model}";
+        }
+    
+        public double CalculateFuelUsed(double miles)
+        {
+            return miles / FuelEfficiency;
+        }
+    }
+    
+    public class Car : Vehicle
+    {
+        public int SeatingCapacity { get; }
+    
+        public Car(string make, string model, int year, double fuelEfficiency, int seatingCapacity)
+            : base(make, model, year, fuelEfficiency)
+        {
+            SeatingCapacity = seatingCapacity;
+        }
+    
+        public override string ToString()
+        {
+            return $"{base.ToString()} (Car, Seats: {SeatingCapacity})";
+        }
+    }
+    
+    public class Truck : Vehicle
+    {
+        public int PayloadCapacity { get; } // in pounds
+    
+        public Truck(string make, string model, int year, double fuelEfficiency, int payloadCapacity)
+            : base(make, model, year, fuelEfficiency)
+        {
+            PayloadCapacity = payloadCapacity;
+        }
+    
+        public override string ToString()
+        {
+            return $"{base.ToString()} (Truck, Payload: {PayloadCapacity} lbs)";
+        }
+    }
+    
+    public class VehicleRegistry
+    {
+        private List<Vehicle> vehicles = new List<Vehicle>();
+    
+        public void RegisterVehicle(Vehicle vehicle)
+        {
+            vehicles.Add(vehicle);
+            Console.WriteLine($"Vehicle registered: {vehicle}");
+        }
+    
+        public void ListVehicles()
+        {
+            if (vehicles.Count > 0)
+            {
+                Console.WriteLine("Registered Vehicles:");
+                foreach (var vehicle in vehicles)
+                {
+                    Console.WriteLine(vehicle);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No registered vehicles.");
+            }
+        }
+    }
+
+- python: |
+    def quick_sort(arr):
+      """
+      Sorts an array using the quick sort algorithm.
+      """
+      if len(arr) <= 1:
+          return arr
+      else:
+          pivot = arr[len(arr) // 2]
+          left = [x for x in arr if x < pivot]
+          middle = [x for x in arr if x == pivot]
+          right = [x for x in arr if x > pivot]
+          return quick_sort(left) + middle + quick_sort(right)
+
+  csharp: |
+          static void Main()
+          {
+              List<int> arr = new List<int> { 3, 6, 8, 10, 1, 2, 1 };
+              Console.WriteLine("Original array: " + String.Join(", ", arr));
+      
+              List<int> sortedArr = QuickSort(arr);
+              Console.WriteLine("Sorted array: " + String.Join(", ", sortedArr));
+          }
+
+- python: |
+    import math
+    
+    class Node:
+        def __init__(self, x, y, is_walkable):
+            self.x = x
+            self.y = y
+            self.is_walkable = is_walkable
+            self.g_cost = float('inf')
+            self.h_cost = float('inf')
+            self.parent = None
+    
+        @property
+        def f_cost(self):
+            return self.g_cost + self.h_cost
+    
+    def find_path(start_node, end_node, grid):
+        open_set = set([start_node])
+        closed_set = set()
+    
+        start_node.g_cost = 0
+        start_node.h_cost = get_distance(start_node, end_node)
+    
+        while open_set:
+            current_node = min(open_set, key=lambda node: (node.f_cost, node.h_cost))
+            open_set.remove(current_node)
+            closed_set.add(current_node)
+    
+            if current_node == end_node:
+                return retrace_path(start_node, end_node)
+    
+            for neighbor in get_neighbors(current_node, grid):
+                if not neighbor.is_walkable or neighbor in closed_set:
+                    continue
+    
+                new_movement_cost_to_neighbor = current_node.g_cost + get_distance(current_node, neighbor)
+    
+                if new_movement_cost_to_neighbor < neighbor.g_cost:
+                    neighbor.parent = current_node
+                    neighbor.g_cost = new_movement_cost_to_neighbor
+                    neighbor.h_cost = get_distance(neighbor, end_node)
+    
+                    if neighbor not in open_set:
+                        open_set.add(neighbor)
+    
+        return []
+    
+    def retrace_path(start_node, end_node):
+        path = []
+        current = end_node
+        while current != start_node:
+            path.append(current)
+            current = current.parent
+        path.reverse()
+        return path
+    
+    def get_neighbors(node, grid):
+        neighbors = []
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
+            x, y = node.x + dx, node.y + dy
+            if 0 <= x < len(grid) and 0 <= y < len(grid[0]):
+                neighbors.append(grid[x][y])
+        return neighbors
+    
+    def get_distance(node_a, node_b):
+        dst_x = abs(node_a.x - node_b.x)
+        dst_y = abs(node_a.y - node_b.y)
+        if dst_x > dst_y:
+            return 14 * dst_y + 10 * (dst_x - dst_y)
+        return 14 * dst_x + 10 * (dst_y - dst_x)
+    
+    def create_grid(width, height):
+        return [[Node(x, y, True) for y in range(height)] for x in range(width)]
+    
+    def main():
+        grid = create_grid(5, 5)
+    
+        start_node = grid[0][0]
+        end_node = grid[4][4]
+    
+        path = find_path(start_node, end_node, grid)
+    
+        print("Path from start to end:")
+        for node in path:
+            print(f"({node.x}, {node.y})")
+    
+    if __name__ == "__main__":
+        main()
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    public class Node
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public bool IsWalkable { get; set; }
+        public float GCost { get; set; } // Distance from starting node
+        public float HCost { get; set; } // Distance from end node (heuristic)
+        public float FCost { get { return GCost + HCost; } } // Total cost
+        public Node Parent { get; set; } // Previous node in the path
+    
+        public Node(int x, int y, bool isWalkable)
+        {
+            X = x;
+            Y = y;
+            IsWalkable = isWalkable;
+        }
+    }
+    
+    public class AStar
+    {
+        public static List<Node> FindPath(Node startNode, Node endNode, Node[,] grid)
+        {
+            List<Node> openSet = new List<Node>();
+            HashSet<Node> closedSet = new HashSet<Node>();
+            openSet.Add(startNode);
+    
+            while (openSet.Count > 0)
+            {
+                Node currentNode = openSet[0];
+                for (int i = 1; i < openSet.Count; i++)
+                {
+                    if (openSet[i].FCost < currentNode.FCost || openSet[i].FCost == currentNode.FCost && openSet[i].HCost < currentNode.HCost)
+                    {
+                        currentNode = openSet[i];
+                    }
+                }
+    
+                openSet.Remove(currentNode);
+                closedSet.Add(currentNode);
+    
+                if (currentNode == endNode)
+                {
+                    return RetracePath(startNode, endNode);
+                }
+    
+                foreach (Node neighbour in GetNeighbours(currentNode, grid))
+                {
+                    if (!neighbour.IsWalkable || closedSet.Contains(neighbour))
+                    {
+                        continue;
+                    }
+    
+                    float newMovementCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
+                    {
+                        neighbour.GCost = newMovementCostToNeighbour;
+                        neighbour.HCost = GetDistance(neighbour, endNode);
+                        neighbour.Parent = currentNode;
+    
+                        if (!openSet.Contains(neighbour))
+                            openSet.Add(neighbour);
+                    }
+                }
+            }
+    
+            return new List<Node>();
+        }
+    
+        private static List<Node> RetracePath(Node startNode, Node endNode)
+        {
+            List<Node> path = new List<Node>();
+            Node currentNode = endNode;
+    
+            while (currentNode != startNode)
+            {
+                path.Add(currentNode);
+                currentNode = currentNode.Parent;
+            }
+            path.Reverse();
+            return path;
+        }
+    
+        private static List<Node> GetNeighbours(Node node, Node[,] grid)
+        {
+            List<Node> neighbours = new List<Node>();
+    
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    if (x == 0 && y == 0)
+                        continue;
+    
+                    int checkX = node.X + x;
+                    int checkY = node.Y + y;
+    
+                    if (checkX >= 0 && checkX < grid.GetLength(0) && checkY >= 0 && checkY < grid.GetLength(1))
+                    {
+                        neighbours.Add(grid[checkX, checkY]);
+                    }
+                }
+            }
+    
+            return neighbours;
+        }
+    
+        private static float GetDistance(Node nodeA, Node nodeB)
+        {
+            int dstX = Math.Abs(nodeA.X - nodeB.X);
+            int dstY = Math.Abs(nodeA.Y - nodeB.Y);
+    
+            if (dstX > dstY)
+                return 14 * dstY + 10 * (dstX - dstY);
+            return 14 * dstX + 10 * (dstY - dstX);
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a 5x5 grid
+            int gridWidth = 5;
+            int gridHeight = 5;
+            Node[,] grid = new Node[gridWidth, gridHeight];
+    
+            for (int x = 0; x < gridWidth; x++)
+            {
+                for (int y = 0; y < gridHeight; y++)
+                {
+                    grid[x, y] = new Node(x, y, true); // All nodes are walkable
+                }
+            }
+    
+            Node startNode = grid[0, 0];
+            Node endNode = grid[4, 4];
+    
+            List<Node> path = AStar.FindPath(startNode, endNode, grid);
+    
+            Console.WriteLine("Path from start to end:");
+            foreach (Node node in path)
+            {
+                Console.WriteLine($"({node.X}, {node.Y})");
+            }
+        }
+    }
+
+- python: |
+    class Error(Exception):
+        pass
+     
+    class TransitionError(Error):
+        def __init__(self, prev, nex, msg):
+            self.prev = prev
+            self.next = nex
+            self.msg = msg
+
+  csharp: |
+    using System;
+    
+    public class Error : Exception
+    {
+        public Error() : base() { }
+        public Error(string message) : base(message) { }
+        public Error(string message, Exception inner) : base(message, inner) { }
+    }
+    
+    public class TransitionError : Error
+    {
+        public int Prev { get; }
+        public int Next { get; }
+        public new string Message { get; }
+    
+        public TransitionError(int prev, int next, string message) : base(message)
+        {
+            Prev = prev;
+            Next = next;
+            Message = message;
+        }
+    }
+
+- python: |
+    import tkinter as tk
+    
+    def display_text():
+        entered_text = text_entry.get()
+        display_label.config(text=entered_text)
+    
+    root = tk.Tk()
+    root.title("Simple GUI")
+    
+    display_label = tk.Label(root, text="Enter something in the box and press the button")
+    display_label.pack()
+    
+    text_entry = tk.Entry(root)
+    text_entry.pack()
+    
+    display_button = tk.Button(root, text="Display Text", command=display_text)
+    display_button.pack()
+    
+    root.mainloop()
+
+  csharp: |
+    using System;
+    using System.Windows.Forms;
+    
+    namespace SimpleGuiApp
+    {
+        public class MainForm : Form
+        {
+            private Label displayLabel;
+            private TextBox textEntry;
+            private Button displayButton;
+    
+            public MainForm()
+            {
+                InitializeComponents();
+            }
+    
+            private void InitializeComponents()
+            {
+                displayLabel = new Label();
+                textEntry = new TextBox();
+                displayButton = new Button();
+    
+                displayLabel.Text = "Enter something in the box and press the button";
+                displayLabel.Location = new System.Drawing.Point(10, 20);
+                displayLabel.Size = new System.Drawing.Size(300, 20);
+    
+                textEntry.Location = new System.Drawing.Point(10, 50);
+                textEntry.Size = new System.Drawing.Size(200, 20);
+    
+                displayButton.Text = "Display Text";
+                displayButton.Location = new System.Drawing.Point(10, 80);
+                displayButton.Size = new System.Drawing.Size(100, 20);
+                displayButton.Click += new EventHandler(DisplayButton_Click);
+    
+                Controls.Add(displayLabel);
+                Controls.Add(textEntry);
+                Controls.Add(displayButton);
+    
+                this.Text = "Simple GUI";
+                this.Size = new System.Drawing.Size(350, 200);
+            }
+    
+            private void DisplayButton_Click(object sender, EventArgs e)
+            {
+                displayLabel.Text = textEntry.Text;
+            }
+        }
+    
+        static class Program
+        {
+            [STAThread]
+            static void Main()
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
+        }
+    }
+
+- python: |
+    def combinationSum(candidates, target):
+        def backtrack(remaining, combo, start):
+            if remaining == 0:
+                result.append(list(combo))
+                return
+            elif remaining < 0:
+                return
+    
+            for i in range(start, len(candidates)):
+                combo.append(candidates[i])
+                backtrack(remaining - candidates[i], combo, i)
+                combo.pop()
+    
+        result = []
+        backtrack(target, [], 0)
+        return result
+    
+    
+    candidates = [2, 3, 6, 7]
+    target = 7
+    
+    for combination in combinationSum(candidates, target):
+        print(f"[{', '.join(map(str, combination))}]")
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    public class Solution {
+        public IList<IList<int>> CombinationSum(int[] candidates, int target) {
+            var result = new List<IList<int>>();
+            Backtrack(candidates, target, new List<int>(), 0, result);
+            return result;
+        }
+    
+        private void Backtrack(int[] candidates, int remaining, List<int> combo, int start, IList<IList<int>> result) {
+            if (remaining == 0) {
+                result.Add(new List<int>(combo));
+                return;
+            } else if (remaining < 0) {
+                return;
+            }
+    
+            for (int i = start; i < candidates.Length; i++) {
+                combo.Add(candidates[i]); 
+                Backtrack(candidates, remaining - candidates[i], combo, i, result); 
+                combo.RemoveAt(combo.Count - 1); 
+            }
+        }
+    }
+    
+    class Program {
+        static void Main() {
+            var solution = new Solution();
+            int[] candidates = {2, 3, 6, 7};
+            int target = 7;
+            var combinations = solution.CombinationSum(candidates, target);
+    
+            foreach (var combination in combinations) {
+                Console.WriteLine($"[{string.Join(", ", combination)}]");
+            }
+        }
+    }
+
+- python: |
+    file1 = open('myfile.txt', 'w')
+    L = ["This is Delhi \n", "This is Paris \n", "This is London \n"]
+    s = "Hello\n"
+    file1.write(s)
+    file1.writelines(L)
+    file1.close()
+    file1 = open('myfile.txt', 'r')
+    print(file1.read())
+    file1.close()
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    class Program
+    {
+        static void Main()
+        {
+            string filePath = "myfile.txt";
+            string s = "Hello\n";
+            List<string> L = new List<string>
+            {
+                "This is Delhi \n",
+                "This is Paris \n",
+                "This is London \n"
+            };
+    
+            using (StreamWriter file1 = new StreamWriter(filePath))
+            {
+                file1.Write(s);
+    
+                foreach (string line in L)
+                {
+                    file1.Write(line);
+                }
+            }
+    
+            using (StreamReader file1 = new StreamReader(filePath))
+            {
+                string fileContent = file1.ReadToEnd();
+                Console.WriteLine(fileContent);
+            }
+        }
+    }
+
+- python: |
+    memory = {}
+    def memoize_factorial(f):
+        def inner(num):
+            if num not in memory:
+                memory[num] = f(num)
+                print('result saved in memory')
+            else:
+                print('returning result from saved memory')
+            return memory[num]
+     
+        return inner
+         
+    @memoize_factorial
+    def facto(num):
+        if num == 1:
+            return 1
+        else:
+            return num * facto(num-1)
+     
+    print(facto(5))
+    print(facto(5))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    public class Program
+    {
+        private static Dictionary<int, int> memory = new Dictionary<int, int>();
+    
+        public static void Main()
+        {
+            Func<int, int> memoizedFactorial = null;
+            memoizedFactorial = MemoizeFactorial(num =>
+            {
+                if (num == 1) return 1;
+                else return num * memoizedFactorial(num - 1);
+            });
+    
+            Console.WriteLine(memoizedFactorial(5));
+            Console.WriteLine(memoizedFactorial(5));
+        }
+    
+        public static Func<int, int> MemoizeFactorial(Func<int, int> f)
+        {
+            return (int num) =>
+            {
+                if (!memory.ContainsKey(num))
+                {
+                    Console.WriteLine("Result saved in memory");
+                    memory[num] = f(num);
+                }
+                else
+                {
+                    Console.WriteLine("Returning result from saved memory");
+                }
+                return memory[num];
+            };
+        }
+    }
+
+- python: |
+    from math import sqrt
+    
+    def SieveOfEratosthenes(prime, p_size):
+        prime[0] = False
+        prime[1] = False
+        for p in range(2, int(sqrt(p_size)) + 1):
+            if prime[p]:
+                for i in range(p * 2, p_size + 1, p):
+                    prime[i] = False
+        return prime
+    
+    def xorPrimeFreq(arr, n):
+        prime = [True] * (n + 1)
+        prime = SieveOfEratosthenes(prime, n + 1)
+        m = dict.fromkeys(arr, 0)
+        for i in range(n):
+            m[arr[i]] += 1
+        xorVal = 0
+        for key, value in m.items():
+            if prime[value]:
+                xorVal ^= key
+        return xorVal
+    
+    if __name__ == "__main__":
+        arr = [5, 4, 6, 5, 4, 6]
+        n = len(arr)
+        print(xorPrimeFreq(arr, n))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static void SieveOfEratosthenes(bool[] prime, int p_size)
+        {
+            prime[0] = false;
+            prime[1] = false;
+            for (int p = 2; p * p <= p_size; p++)
+            {
+                if (prime[p])
+                {
+                    for (int i = p * 2; i <= p_size; i += p)
+                        prime[i] = false;
+                }
+            }
+        }
+    
+        static int XorPrimeFreq(int[] arr, int n)
+        {
+            bool[] prime = new bool[n + 1];
+            Array.Fill(prime, true);
+            SieveOfEratosthenes(prime, n + 1);
+    
+            Dictionary<int, int> m = new Dictionary<int, int>();
+            foreach (var item in arr)
+            {
+                if (m.ContainsKey(item))
+                    m[item]++;
+                else
+                    m[item] = 1;
+            }
+    
+            int xorVal = 0;
+            foreach (var kvp in m)
+            {
+                if (prime[kvp.Value])
+                    xorVal ^= kvp.Key;
+            }
+    
+            return xorVal;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 5, 4, 6, 5, 4, 6 };
+            int n = arr.Length;
+            Console.WriteLine(XorPrimeFreq(arr, n));
+        }
+    }
+
+- python: |
+    def ksmallest(arr, n, k):
+        for i in range(n):
+            if arr[i] <= k:
+                k += 1
+            else:
+                break
+        return k
+    
+    k = 1
+    arr = [1]
+    n = len(arr)
+    print(ksmallest(arr, n, k))
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int KSmallest(int[] arr, int n, int k)
+        {
+            for(int i = 0; i < n; i++)
+            {
+                if(arr[i] <= k)
+                {
+                    k++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return k;
+        }
+    
+        static void Main(string[] args)
+        {
+            int k = 1;
+            int[] arr = {1};
+            int n = arr.Length;
+            Console.WriteLine(KSmallest(arr, n, k));
+        }
+    }
+
+- python: |
+    def mixed_operation(a, b):
+        return a + b
+    
+    print(mixed_operation(10, 5))       
+    print(mixed_operation("Hello, ", "world!")) 
+    print(mixed_operation([1, 2], [3, 4]))
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    class Program
+    {
+        static dynamic MixedOperation(dynamic a, dynamic b)
+        {
+            if (a is List<int> && b is List<int>)
+            {
+                return ((List<int>)a).Concat((List<int>)b).ToList();
+            }
+            else
+            {
+                return a + b;
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            Console.WriteLine(MixedOperation(10, 5));
+            Console.WriteLine(MixedOperation("Hello, ", "world!")); 
+            var listResult = MixedOperation(new List<int> {1, 2}, new List<int> {3, 4});
+            Console.WriteLine($"[{string.Join(", ", listResult)}]"); 
+        }
+    }
+
+- python: |
+    def fnMod(n):
+        if n % 5 == 1:
+            return 4
+        else:
+            return 0
+    
+    n = 10
+    print(fnMod(n))
+    
+    n = 11
+    print(fnMod(n))
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int FnMod(int n)
+        {
+            if (n % 5 == 1)
+                return 4;
+            else
+                return 0;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 10;
+            Console.WriteLine(FnMod(n)); 
+    
+            n = 11;
+            Console.WriteLine(FnMod(n)); 
+        }
+    }
+
+- python: |
+    def findSmallest(arr, n):
+        res = 1
+        for i in range(0, n):
+            if arr[i] <= res:
+                res = res + arr[i]
+            else:
+                break
+        return res
+    
+    arr1 = [1, 3, 4, 5]
+    n1 = len(arr1)
+    print(findSmallest(arr1, n1))
+    
+    arr2 = [1, 2, 6, 10, 11, 15]
+    n2 = len(arr2)
+    print(findSmallest(arr2, n2))
+    
+    arr3 = [1, 1, 1, 1]
+    n3 = len(arr3)
+    print(findSmallest(arr3, n3))
+    
+    arr4 = [1, 1, 3, 4]
+    n4 = len(arr4)
+    print(findSmallest(arr4, n4))
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int FindSmallest(int[] arr, int n)
+        {
+            int res = 1;
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[i] <= res)
+                {
+                    res = res + arr[i];
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return res;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr1 = { 1, 3, 4, 5 };
+            int n1 = arr1.Length;
+            Console.WriteLine(FindSmallest(arr1, n1));
+    
+            int[] arr2 = { 1, 2, 6, 10, 11, 15 };
+            int n2 = arr2.Length;
+            Console.WriteLine(FindSmallest(arr2, n2));
+    
+            int[] arr3 = { 1, 1, 1, 1 };
+            int n3 = arr3.Length;
+            Console.WriteLine(FindSmallest(arr3, n3));
+    
+            int[] arr4 = { 1, 1, 3, 4 };
+            int n4 = arr4.Length;
+            Console.WriteLine(FindSmallest(arr4, n4));
+        }
+    }
+
+- python: |
+    def two_factor(n):
+        twocount = 0
+        while n % 2 == 0:
+            twocount += 1
+            n = int(n / 2)
+        return twocount
+    
+    def five_factor(n):
+        fivecount = 0
+        while n % 5 == 0:
+            fivecount += 1
+            n = int(n / 5)
+        return fivecount
+    
+    def find_con_zero(arr, n):
+        twocount = 0
+        fivecount = 0
+        for i in range(n):
+            twocount += two_factor(arr[i])
+            fivecount += five_factor(arr[i])
+        if twocount < fivecount:
+            return twocount
+        else:
+            return fivecount
+    
+    arr = [100, 10, 5, 25, 35, 14]
+    n = 6
+    print(find_con_zero(arr, n))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int TwoFactor(int n)
+        {
+            int twocount = 0;
+            while (n % 2 == 0)
+            {
+                twocount++;
+                n = n / 2;
+            }
+            return twocount;
+        }
+    
+        static int FiveFactor(int n)
+        {
+            int fivecount = 0;
+            while (n % 5 == 0)
+            {
+                fivecount++;
+                n = n / 5;
+            }
+            return fivecount;
+        }
+    
+        static int FindConZero(int[] arr, int n)
+        {
+            int twocount = 0;
+            int fivecount = 0;
+            for (int i = 0; i < n; i++)
+            {
+                twocount += TwoFactor(arr[i]);
+                fivecount += FiveFactor(arr[i]);
+            }
+            return Math.Min(twocount, fivecount);
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 100, 10, 5, 25, 35, 14 };
+            int n = 6;
+            Console.WriteLine(FindConZero(arr, n));
+        }
+    }
+
+- python: |
+    def reArrange(words, n):
+        mp = {}
+        for i in range(n):
+            mp[words[i]] = i + 1
+        words.sort()
+        for i in range(n):
+            print(mp[words[i]], end=" \u2581 ")
+    
+    words = ["live", "place", "travel", "word", "sky"]
+    n = len(words)
+    reArrange(words, n)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    class Program
+    {
+        static void ReArrange(string[] words)
+        {
+            var mp = new Dictionary<string, int>();
+            for (int i = 0; i < words.Length; i++)
+            {
+                mp[words[i]] = i + 1;
+            }
+    
+            Array.Sort(words); 
+    
+            foreach (var word in words)
+            {
+                Console.Write(mp[word] + " \u2581 ");
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            string[] words = { "live", "place", "travel", "word", "sky" };
+            ReArrange(words);
+        }
+    }
+
+- python: |
+    def preCalculate(binary, n, left):
+        count1, count0 = 0, 0
+        for i in range(n):
+            left[i][0] = count1
+            left[i][1] = count0
+            if binary[i]:
+                count1 += 1
+            else:
+                count0 += 1
+    
+    binary = [1, 1, 1, 0, 0, 1, 0, 1, 1]
+    n = len(binary)
+    left = [[0 for i in range(2)] for i in range(n)]
+    preCalculate(binary, n, left)
+    
+    queries = [0, 1, 2, 4]
+    q = len(queries)
+    for i in range(q):
+        print(left[queries[i]][0], "ones", left[queries[i]][1], "zeros")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        class Pair
+        {
+            public int First { get; set; }
+            public int Second { get; set; }
+    
+            public Pair(int first, int second)
+            {
+                First = first;
+                Second = second;
+            }
+        }
+    
+        static void PreCalculate(int[] binary, int n, Pair[] left)
+        {
+            int count1 = 0, count0 = 0;
+            for (int i = 0; i < n; i++)
+            {
+                left[i] = new Pair(count1, count0);
+                if (binary[i] != 0)
+                    count1++;
+                else
+                    count0++;
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] binary = { 1, 1, 1, 0, 0, 1, 0, 1, 1 };
+            int n = binary.Length;
+            Pair[] left = new Pair[n];
+    
+            PreCalculate(binary, n, left);
+    
+            int[] queries = { 0, 1, 2, 4 };
+            int q = queries.Length;
+            for (int i = 0; i < q; i++)
+            {
+                Console.WriteLine(left[queries[i]].First + " ones " + left[queries[i]].Second + " zeros");
+            }
+        }
+    }
+
+- python: |
+    def maxSubArraySum(arr, size):
+        max_so_far = arr[0]
+        curr_max = arr[0]
+        for i in range(1, size):
+            curr_max = max(arr[i], curr_max + arr[i])
+            max_so_far = max(max_so_far, curr_max)
+        return max_so_far
+    
+    def lenOfLongSubarrWithGivenSum(arr, n, k):
+        um = dict()
+        Sum, maxLen = 0, 0
+        for i in range(n):
+            Sum += arr[i]
+            if Sum == k:
+                maxLen = i + 1
+            if Sum not in um.keys():
+                um[Sum] = i
+            if (Sum - k) in um.keys() and maxLen < (i - um[Sum - k]):
+                maxLen = i - um[Sum - k]
+        return maxLen
+    
+    def lenLongSubarrWithMaxSum(arr, n):
+        maxSum = maxSubArraySum(arr, n)
+        return lenOfLongSubarrWithGivenSum(arr, n, maxSum)
+    
+    arr = [5, -2, -1, 3, -4]
+    n = len(arr)
+    print("Length of longest subarray having maximum sum = ", lenLongSubarrWithMaxSum(arr, n))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static int MaxSubArraySum(int[] arr, int size)
+        {
+            int maxSoFar = arr[0];
+            int currMax = arr[0];
+            for (int i = 1; i < size; i++)
+            {
+                currMax = Math.Max(arr[i], currMax + arr[i]);
+                maxSoFar = Math.Max(maxSoFar, currMax);
+            }
+            return maxSoFar;
+        }
+    
+        static int LenOfLongSubarrWithGivenSum(int[] arr, int n, int k)
+        {
+            Dictionary<int, int> um = new Dictionary<int, int>();
+            int sum = 0, maxLen = 0;
+            for (int i = 0; i < n; i++)
+            {
+                sum += arr[i];
+                if (sum == k) maxLen = i + 1;
+                if (!um.ContainsKey(sum)) um[sum] = i;
+                if (um.ContainsKey(sum - k)) maxLen = Math.Max(maxLen, i - um[sum - k]);
+            }
+            return maxLen;
+        }
+    
+        static int LenLongSubarrWithMaxSum(int[] arr, int n)
+        {
+            int maxSum = MaxSubArraySum(arr, n);
+            return LenOfLongSubarrWithGivenSum(arr, n, maxSum);
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 5, -2, -1, 3, -4 };
+            int n = arr.Length;
+            Console.WriteLine("Length of longest subarray having maximum sum = " + LenLongSubarrWithMaxSum(arr, n));
+        }
+    }
+
+- python: |
+    def Maxsum(c1, c2, c3, c4):
+        sum = 0
+        two34 = min(c2, min(c3, c4))
+        sum = two34 * 234
+        c2 -= two34
+        sum += min(c2, c1) * 12
+        return sum
+    
+    c1 = 5; c2 = 2; c3 = 3; c4 = 4
+    print(Maxsum(c1, c2, c3, c4))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int Maxsum(int c1, int c2, int c3, int c4)
+        {
+            int sum = 0;
+            int two34 = Math.Min(c2, Math.Min(c3, c4));
+            sum = two34 * 234;
+            c2 -= two34;
+            sum += Math.Min(c2, c1) * 12;
+            return sum;
+        }
+    
+        static void Main(string[] args)
+        {
+            int c1 = 5, c2 = 2, c3 = 3, c4 = 4;
+            Console.WriteLine(Maxsum(c1, c2, c3, c4));
+        }
+    }
+
+- python: |
+    def countSubarrays(a, n, m):
+        count = 0
+        for i in range(n):
+            odd = 0
+            for j in range(i, n):
+                if a[j] % 2:
+                    odd += 1
+                if odd == m:
+                    count += 1
+        return count
+    
+    a = [2, 2, 5, 6, 9, 2, 11]
+    n = len(a)
+    m = 2
+    print(countSubarrays(a, n, m))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int CountSubarrays(int[] a, int n, int m)
+        {
+            int count = 0;
+            for (int i = 0; i < n; i++)
+            {
+                int odd = 0;
+                for (int j = i; j < n; j++)
+                {
+                    if (a[j] % 2 != 0) 
+                    {
+                        odd++;
+                    }
+                    if (odd == m)
+                    {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] a = { 2, 2, 5, 6, 9, 2, 11 };
+            int n = a.Length;
+            int m = 2;
+            Console.WriteLine(CountSubarrays(a, n, m));
+        }
+    }
+
+- python: |
+    def maximum_number_distinct_prime_range(m, n):
+        factor_count = [0] * (n + 1)
+        prime = [True] * (n + 1)
+        for i in range(2, n + 1):
+            if prime[i]:
+                factor_count[i] = 1
+                for j in range(i * 2, n + 1, i):
+                    factor_count[j] += 1
+                    prime[j] = False
+    
+        max_factors = factor_count[m]
+        num_with_max_factors = m
+        for i in range(m, n + 1):
+            if factor_count[i] > max_factors:
+                max_factors = factor_count[i]
+                num_with_max_factors = i
+    
+        return num_with_max_factors
+    
+    # Example usage
+    if __name__ == "__main__":
+        m = 4
+        n = 6
+        print(maximum_number_distinct_prime_range(m, n))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int MaximumNumberDistinctPrimeRange(int m, int n)
+        {
+            int[] factorCount = new int[n + 1];
+            bool[] prime = new bool[n + 1];
+            
+            for (int i = 2; i <= n; i++)
+            {
+                prime[i] = true;
+            }
+    
+            for (int i = 2; i <= n; i++)
+            {
+                if (prime[i])
+                {
+                    factorCount[i] = 1;
+                    for (int j = i * 2; j <= n; j += i)
+                    {
+                        factorCount[j]++;
+                        prime[j] = false;
+                    }
+                }
+            }
+    
+            int max = factorCount[m];
+            int numWithMaxFactors = m;
+            for (int i = m; i <= n; i++)
+            {
+                if (factorCount[i] > max)
+                {
+                    max = factorCount[i];
+                    numWithMaxFactors = i;
+                }
+            }
+    
+            return numWithMaxFactors;
+        }
+    
+        static void Main(string[] args)
+        {
+            int m = 4, n = 6;
+            Console.WriteLine(MaximumNumberDistinctPrimeRange(m, n));
+        }
+    }
+
+- python: |
+    def sieve_modified():
+        global MAX, prefix
+        for i in range(2, MAX, 2):
+            for j in range(i, MAX, i):
+                prefix[j] += i
+        for i in range(1, MAX):
+            prefix[i] += prefix[i - 1]
+    
+    def sumEvenFactors(L, R):
+        return prefix[R] - prefix[L - 1]
+    
+    if __name__ == "__main__":
+        MAX = 100000
+        prefix = [0] * MAX
+        sieve_modified()
+        l, r = 6, 10
+        print(sumEvenFactors(l, r))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static readonly int MAX = 100000;
+        static long[] prefix = new long[MAX];
+    
+        static void SieveModified()
+        {
+            for (int i = 2; i < MAX; i += 2)
+            {
+                for (int j = i; j < MAX; j += i)
+                {
+                    prefix[j] += i;
+                }
+            }
+            
+            for (int i = 1; i < MAX; i++)
+            {
+                prefix[i] += prefix[i - 1];
+            }
+        }
+    
+        static long SumEvenFactors(int L, int R)
+        {
+            return prefix[R] - prefix[L - 1];
+        }
+    
+        static void Main(string[] args)
+        {
+            SieveModified();
+            int l = 6, r = 10;
+            Console.WriteLine(SumEvenFactors(l, r));
+        }
+    }
+
+- python: |
+    import math
+    
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+    
+    def push(head_ref, new_data):
+        new_node = Node(new_data)
+        new_node.next = head_ref
+        head_ref = new_node
+        return head_ref
+    
+    def isPrime(n):
+        if n <= 1:
+            return False
+        if n <= 3:
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        for i in range(5, int(math.sqrt(n)) + 1, 6):
+            if n % i == 0 or n % (i + 2) == 0:
+                return False
+        return True
+    
+    def deleteNonPrimeNodes(head_ref):
+        while head_ref is not None and not isPrime(head_ref.data):
+            head_ref = head_ref.next
+        
+        curr = head_ref
+        while curr is not None and curr.next is not None:
+            if not isPrime(curr.next.data):
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+        return head_ref
+    
+    def printList(head):
+        while head is not None:
+            print(f"{head.data} ➡ ", end="")
+            head = head.next
+        print("None")
+    
+    if __name__ == "__main__":
+        head = None
+    
+        for val in [17, 7, 6, 16, 15]:
+            head = push(head, val)
+        
+        print("Original List: ")
+        printList(head)
+        
+        head = deleteNonPrimeNodes(head)
+        
+        print("\nModified List: ")
+        printList(head)
+
+  csharp: |
+    using System;
+    
+    public class GFG
+    {
+        class Node
+        {
+            public int data;
+            public Node next;
+        }
+    
+        static Node Push(Node head_ref, int new_data)
+        {
+            Node new_node = new Node();
+            new_node.data = new_data;
+            new_node.next = head_ref;
+            head_ref = new_node;
+            return head_ref;
+        }
+    
+        static bool IsPrime(int n)
+        {
+            if (n <= 1) return false;
+            if (n <= 3) return true;
+            if (n % 2 == 0 || n % 3 == 0) return false;
+            for (int i = 5; i * i <= n; i += 6)
+            {
+                if (n % i == 0 || n % (i + 2) == 0) return false;
+            }
+            return true;
+        }
+    
+        static Node DeleteNonPrimeNodes(Node head_ref)
+        {
+            while (head_ref != null && !IsPrime(head_ref.data))
+            {
+                head_ref = head_ref.next;
+            }
+    
+            Node curr = head_ref;
+            while (curr != null && curr.next != null)
+            {
+                if (!IsPrime(curr.next.data))
+                {
+                    curr.next = curr.next.next;
+                }
+                else
+                {
+                    curr = curr.next;
+                }
+            }
+            return head_ref;
+        }
+    
+        static void PrintList(Node head)
+        {
+            while (head != null)
+            {
+                Console.Write(head.data + " ➡ ");
+                head = head.next;
+            }
+            Console.WriteLine("null");
+        }
+    
+        static void Main(string[] args)
+        {
+            Node head = null;
+            head = Push(head, 17);
+            head = Push(head, 7);
+            head = Push(head, 6);
+            head = Push(head, 16);
+            head = Push(head, 15);
+    
+            Console.WriteLine("Original List: ");
+            PrintList(head);
+    
+            head = DeleteNonPrimeNodes(head);
+    
+            Console.WriteLine("\nModified List: ");
+            PrintList(head);
+        }
+    }
+
+- python: |
+    def PrintBothArrays(a, n):
+        v1, v2 = [], []
+        mpp = {key: 0 for key in a}
+        
+        for i in range(n):
+            mpp[a[i]] += 1
+            if mpp[a[i]] == 1:
+                v1.append(a[i])
+            elif mpp[a[i]] == 2:
+                v2.append(a[i])
+            else:
+                print("Not possible")
+                return
+        
+        v1.sort()
+        print("Strictly increasing array is: ", end="")
+        for it in v1:
+            print(it, end=" ")
+        
+        v2.sort(reverse=True)
+        print("\nStrictly decreasing array is: ", end="")
+        for it in v2:
+            print(it, end=" ")
+    
+    if __name__ == "__main__":
+        a = [7, 2, 7, 3, 3, 1, 4]
+        n = len(a)
+        PrintBothArrays(a, n)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    class Program
+    {
+        static void PrintBothArrays(int[] a, int n)
+        {
+            List<int> v1 = new List<int>(), v2 = new List<int>();
+            Dictionary<int, int> mpp = new Dictionary<int, int>();
+    
+            foreach (var item in a)
+            {
+                if (mpp.ContainsKey(item))
+                {
+                    mpp[item]++;
+                }
+                else
+                {
+                    mpp[item] = 1;
+                }
+    
+                if (mpp[item] == 1)
+                {
+                    v1.Add(item);
+                }
+                else if (mpp[item] == 2)
+                {
+                    v2.Add(item);
+                }
+                else
+                {
+                    Console.WriteLine("Not possible");
+                    return;
+                }
+            }
+    
+            v1.Sort();
+            Console.Write("Strictly increasing array is: ");
+            foreach (var item in v1)
+            {
+                Console.Write(item + " ");
+            }
+    
+            v2.Sort();
+            v2.Reverse();
+            Console.Write("\nStrictly decreasing array is: ");
+            foreach (var item in v2)
+            {
+                Console.Write(item + " ");
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] a = { 7, 2, 7, 3, 3, 1, 4 };
+            int n = a.Length;
+            PrintBothArrays(a, n);
+        }
+
+- python: |
+    def reverse(arr, n, k):
+        for i in range(0, n, 2 * k):
+            left = i
+            right = min(i + k - 1, n - 1)
+            while left < right:
+                temp = arr[left]
+                arr[left] = arr[right]
+                arr[right] = temp
+                left += 1
+                right -= 1
+    
+    if __name__ == '__main__':
+        arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+        k = 3
+        n = len(arr)
+        reverse(arr, n, k)
+        for i in range(0, n, 1):
+            print(arr[i], end=" ")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Reverse(int[] arr, int n, int k)
+        {
+            for (int i = 0; i < n; i += 2 * k)
+            {
+                int left = i;
+                int right = Math.Min(i + k - 1, n - 1);
+                while (left < right)
+                {
+                    int temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+                    left++;
+                    right--;
+                }
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+            int k = 3;
+            int n = arr.Length;
+            Reverse(arr, n, k);
+            foreach (int item in arr)
+            {
+                Console.Write(item + " ");
+            }
+        }
+    }
+
+- python: |
+    def digSum(n):
+        if n == 0:
+            return 0
+        return 9 if n % 9 == 0 else n % 9
+    
+    def repeatedNumberSum(n, x):
+        sum = x * digSum(n)
+        return digSum(sum)
+    
+    n = 24
+    x = 3
+    print(repeatedNumberSum(n, x))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int DigSum(int n)
+        {
+            if (n == 0)
+                return 0;
+            return (n % 9 == 0) ? 9 : (n % 9);
+        }
+    
+        static int RepeatedNumberSum(int n, int x)
+        {
+            int sum = x * DigSum(n);
+            return DigSum(sum);
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 24, x = 3;
+            Console.WriteLine(RepeatedNumberSum(n, x));
+        }
+    }
+
+- python: |
+    def findTriangles(n):
+        num = n
+        print(num, end=" ➡ ")
+        print(num * (num - 4) * (num - 5) // 6)
+    
+    n = 6
+    findTriangles(n)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void FindTriangles(int n)
+        {
+            int num = n;
+            Console.Write(num + " ➡ ");
+            Console.WriteLine(num * (num - 4) * (num - 5) / 6);
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 6;
+            FindTriangles(n);
+        }
+    }
+
+- python: |
+    def NoofTriplets(N, K):
+        cnt = [0] * K
+        for i in range(1, N + 1):
+            cnt[i % K] += 1
+    
+        if (K & 1):
+            rslt = cnt[0] * cnt[0] * cnt[0]
+            return rslt
+        else:
+            rslt = (cnt[0] * cnt[0] * cnt[0] + cnt[K // 2] * cnt[K // 2] * cnt[K // 2])
+            return rslt
+    
+    if __name__ == "__main__":
+        N = 3
+        K = 2
+        print(NoofTriplets(N, K))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int NoofTriplets(int N, int K)
+        {
+            int[] cnt = new int[K];
+            for (int i = 1; i <= N; i++)
+            {
+                cnt[i % K]++;
+            }
+    
+            if ((K & 1) == 1) // If K is odd
+            {
+                return cnt[0] * cnt[0] * cnt[0];
+            }
+            else // If K is even
+            {
+                return cnt[0] * cnt[0] * cnt[0] + cnt[K / 2] * cnt[K / 2] * cnt[K / 2];
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int N = 3;
+            int K = 2;
+            Console.WriteLine(NoofTriplets(N, K));
+        }
+    }
+
+- python: |
+    import sys
+    
+    INT_MAX = sys.maxsize
+    INT_MIN = -(sys.maxsize - 1)
+    
+    def minimumAdjacentDifference(a, n, k):
+        minDiff = INT_MAX
+        for i in range(k + 1):
+            maxDiff = INT_MIN
+            for j in range(n - k - 1):
+                for p in range(i, i + j + 1):
+                    maxDiff = max(maxDiff, a[p + 1] - a[p])
+            minDiff = min(minDiff, maxDiff)
+        return minDiff
+    
+    if __name__ == "__main__":
+        n = 5
+        k = 2
+        a = [3, 7, 8, 10, 14]
+        print(minimumAdjacentDifference(a, n, k))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int MinimumAdjacentDifference(int[] a, int n, int k)
+        {
+            int minDiff = Int32.MaxValue;
+            for (int i = 0; i <= k; i++)
+            {
+                int maxDiff = Int32.MinValue;
+                for (int j = 0; j < n - k - 1; j++)
+                {
+                    for (int p = i; p <= i + j; p++)
+                    {
+                        maxDiff = Math.Max(maxDiff, a[p + 1] - a[p]);
+                    }
+                }
+                minDiff = Math.Min(minDiff, maxDiff);
+            }
+            return minDiff;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 5;
+            int k = 2;
+            int[] a = { 3, 7, 8, 10, 14 };
+            Console.WriteLine(MinimumAdjacentDifference(a, n, k));
+        }
+    }
+
+- python: |
+    def solve(n):
+        low = 1
+        high = 10**4
+        x, p = n, 0
+        while low <= high:
+            mid = (low + high) // 2
+            sum = (mid * (mid + 1)) // 2
+            if x - sum >= 1:
+                p = mid
+                low = mid + 1
+            else:
+                high = mid - 1
+    
+        start, end, y, q = 1, 10**4, 1, 0
+        while start <= end:
+            mid = (start + end) // 2
+            sum = (mid * (mid + 1)) // 2
+            if y + sum <= n:
+                q = mid
+                start = mid + 1
+            else:
+                end = mid - 1
+    
+        x = x - (p * (p + 1)) // 2
+        y = y + (q * (q + 1)) // 2
+        r = x
+        c = q + 1 - n + y
+        return r, c
+    
+    n = 5
+    r, c = solve(n)
+    print(r, c)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int[] Solve(int n)
+        {
+            int low = 1, high = (int)1e4;
+            int x = n, p = 0;
+    
+            while (low <= high)
+            {
+                int mid = (low + high) / 2;
+                int sum = (mid * (mid + 1)) / 2;
+                if (x - sum >= 1)
+                {
+                    p = mid;
+                    low = mid + 1;
+                }
+                else
+                {
+                    high = mid - 1;
+                }
+            }
+    
+            int start = 1, end = (int)1e4, y = 1, q = 0;
+    
+            while (start <= end)
+            {
+                int mid = (start + end) / 2;
+                int sum = (mid * (mid + 1)) / 2;
+                if (y + sum <= n)
+                {
+                    q = mid;
+                    start = mid + 1;
+                }
+                else
+                {
+                    end = mid - 1;
+                }
+            }
+    
+            x = x - (p * (p + 1)) / 2;
+            y = y + (q * (q + 1)) / 2;
+            int r = x;
+            int c = q + 1 - n + y;
+            return new int[] { r, c };
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 5;
+            int[] result = Solve(n);
+            Console.WriteLine($"{result[0]} {result[1]}");
+        }
+    }
+
+- python: |
+    def countGreater(arr, n, k):
+        l = 0
+        r = n - 1
+        leftGreater = n
+        while l <= r:
+            m = int(l + (r - l) / 2)
+            if arr[m] > k:
+                leftGreater = m
+                r = m - 1
+            else:
+                l = m + 1
+        return (n - leftGreater)
+    
+    if __name__ == '__main__':
+        arr = [3, 3, 4, 7, 7, 7, 11, 13, 13]
+        n = len(arr)
+        k = 7
+        print(countGreater(arr, n, k))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int CountGreater(int[] arr, int n, int k)
+        {
+            int l = 0;
+            int r = n - 1;
+            int leftGreater = n;
+            while (l <= r)
+            {
+                int m = l + (r - l) / 2;
+                if (arr[m] > k)
+                {
+                    leftGreater = m;
+                    r = m - 1;
+                }
+                else
+                {
+                    l = m + 1;
+                }
+            }
+            return n - leftGreater;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 3, 3, 4, 7, 7, 7, 11, 13, 13 };
+            int n = arr.Length;
+            int k = 7;
+            Console.WriteLine(CountGreater(arr, n, k));
+        }
+    }
+
+- python: |
+    def isPossible(n):
+        fac = [0 for i in range(10)]
+        fac[0] = 1
+        fac[1] = 1
+        for i in range(2, 10, 1):
+            fac[i] = fac[i - 1] * i
+        sum = 0
+        x = n
+        while x:
+            sum += fac[x % 10]
+            x = int(x / 10)
+        if sum % n == 0:
+            return True
+        return False
+    
+    if __name__ == '__main__':
+        n = 19
+        if isPossible(n):
+            print("Yes")
+        else:
+            print("No")
+
+  csharp: |
+    using System;
+    
+    class Program {
+        // Function to check if the sum of the factorials of the digits of n is divisible by n
+        public static bool IsPossible(int n) {
+            int[] fac = new int[10];
+            fac[0] = fac[1] = 1;
+            for (int i = 2; i < 10; i++) {
+                fac[i] = fac[i - 1] * i;
+            }
+    
+            int sum = 0;
+            int x = n;
+            while (x > 0) {
+                sum += fac[x % 10];
+                x /= 10;
+            }
+    
+            return sum % n == 0;
+        }
+    
+        static void Main(string[] args) {
+            int n = 19;
+            if (IsPossible(n)) {
+                Console.WriteLine("Yes");
+            } else {
+                Console.WriteLine("No");
+            }
+        }
+    }
+
+- python: |
+    def isPalindrome(n):
+        divisor = 1
+        while n / divisor >= 10:
+            divisor *= 10
+        while n != 0:
+            leading = n // divisor
+            trailing = n % 10
+            if leading != trailing:
+                return False
+            n = (n % divisor) // 10
+            divisor = divisor / 100
+        return True
+    
+    if isPalindrome(1001):
+        print('Yes, it is a palindrome')
+    else:
+        print('No, not a palindrome')
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool IsPalindrome(int n)
+        {
+            int divisor = 1;
+            while (n / divisor >= 10)
+            {
+                divisor *= 10;
+            }
+            
+            while (n != 0)
+            {
+                int leading = n / divisor;
+                int trailing = n % 10;
+                if (leading != trailing)
+                {
+                    return false;
+                }
+                n = (n % divisor) / 10;
+                divisor /= 100;
+            }
+            
+            return true;
+        }
+    
+        static void Main(string[] args)
+        {
+            if (IsPalindrome(1001))
+            {
+                Console.WriteLine("Yes, it is a palindrome");
+            }
+            else
+            {
+                Console.WriteLine("No, not a palindrome");
+            }
+        }
+    }
+
+- python: |
+    import numpy as np
+    
+    test_list = [(1, 'Rash', 21), (2, 'Varsha', 20), (3, 'Kil', 19)]
+    print("The original list is : " + str(test_list))
+    
+    arr = np.array(test_list)
+    n = 1
+    
+    res_arr = arr[:, n]
+    res = res_arr.tolist()
+    
+    print("List with only nth tuple element (i.e names) : " + str(res))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<(int Id, string Name, int Age)> testList = new List<(int, string, int)>
+            {
+                (1, "Rash", 21),
+                (2, "Varsha", 20),
+                (3, "Kil", 19)
+            };
+    
+            Console.WriteLine("The original list is : " + String.Join(", ", testList.Select(t => $"({t.Id}, {t.Name}, {t.Age})")));
+    
+            var res = testList.Select(t => t.Name).ToList();
+    
+            Console.WriteLine("List with only nth tuple element (i.e names) : " + String.Join(", ", res));
+        }
+    }
+
+- python: |
+    import sys
+    
+    k = 2
+    
+    class Node:
+        def __init__(self, point):
+            self.point = point
+            self.left = None
+            self.right = None
+    
+    def newNode(point):
+        return Node(point)
+    
+    def insertRec(root, point, depth):
+        if not root:
+            return newNode(point)
+        cd = depth % k
+        if point[cd] < root.point[cd]:
+            root.left = insertRec(root.left, point, depth + 1)
+        else:
+            root.right = insertRec(root.right, point, depth + 1)
+        return root
+    
+    def insert(root, point):
+        return insertRec(root, point, 0)
+    
+    def arePointsSame(point1, point2):
+        for i in range(k):
+            if point1[i] != point2[i]:
+                return False
+        return True
+    
+    def searchRec(root, point, depth):
+        if not root:
+            return False
+        if arePointsSame(root.point, point):
+            return True
+        cd = depth % k
+        if point[cd] < root.point[cd]:
+            return searchRec(root.left, point, depth + 1)
+        return searchRec(root.right, point, depth + 1)
+    
+    def search(root, point):
+        return searchRec(root, point, 0)
+    
+    if __name__ == '__main__':
+        root = None
+        points = [[3, 6], [17, 15], [13, 15], [6, 12], [9, 1], [2, 7], [10, 19]]
+    
+        n = len(points)
+    
+        for i in range(n):
+            root = insert(root, points[i])
+    
+        point1 = [10, 19]
+        if search(root, point1):
+            print("Found")
+        else:
+            print("Not Found")
+    
+        point2 = [12, 19]
+        if search(root, point2):
+            print("Found")
+        else:
+            print("Not Found")
+
+  csharp: |
+    using System;
+    
+    public class Node
+    {
+        public int[] Point { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
+    
+        public Node(int[] point)
+        {
+            Point = point;
+            Left = null;
+            Right = null;
+        }
+    }
+    
+    public class KDTree
+    {
+        private const int k = 2;
+    
+        public static Node InsertRec(Node root, int[] point, int depth)
+        {
+            if (root == null)
+            {
+                return new Node(point);
+            }
+    
+            int cd = depth % k;
+    
+            if (point[cd] < root.Point[cd])
+            {
+                root.Left = InsertRec(root.Left, point, depth + 1);
+            }
+            else
+            {
+                root.Right = InsertRec(root.Right, point, depth + 1);
+            }
+    
+            return root;
+        }
+    
+        public static Node Insert(Node root, int[] point)
+        {
+            return InsertRec(root, point, 0);
+        }
+    
+        public static bool ArePointsSame(int[] point1, int[] point2)
+        {
+            for (int i = 0; i < k; i++)
+            {
+                if (point1[i] != point2[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    
+        public static bool SearchRec(Node root, int[] point, int depth)
+        {
+            if (root == null)
+            {
+                return false;
+            }
+    
+            if (ArePointsSame(root.Point, point))
+            {
+                return true;
+            }
+    
+            int cd = depth % k;
+    
+            if (point[cd] < root.Point[cd])
+            {
+                return SearchRec(root.Left, point, depth + 1);
+            }
+    
+            return SearchRec(root.Right, point, depth + 1);
+        }
+    
+        public static bool Search(Node root, int[] point)
+        {
+            return SearchRec(root, point, 0);
+        }
+    
+        public static void Main(string[] args)
+        {
+            Node root = null;
+            int[][] points = new int[][] {
+                new int[] {3, 6},
+                new int[] {17, 15},
+                new int[] {13, 15},
+                new int[] {6, 12},
+                new int[] {9, 1},
+                new int[] {2, 7},
+                new int[] {10, 19}
+            };
+    
+            foreach (int[] point in points)
+            {
+                root = Insert(root, point);
+            }
+    
+            int[] point1 = new int[] {10, 19};
+            Console.WriteLine(Search(root, point1) ? "Found" : "Not Found");
+    
+            int[] point2 = new int[] {12, 19};
+            Console.WriteLine(Search(root, point2) ? "Found" : "Not Found");
+        }
+    }
+
+- python: |
+    from datetime import date
+     
+     
+    class Person:
+        def __init__(self, name, age):
+            self.name = name
+            self.age = age
+     
+        @classmethod
+        def fromBirthYear(cls, name, year):
+            return cls(name, date.today().year - year)
+     
+        @staticmethod
+        def isAdult(age):
+            return age > 18
+     
+     
+    person1 = Person('mayank', 21)
+    person2 = Person.fromBirthYear('mayank', 1996)
+     
+    print(person1.age)
+    print(person2.age)
+    print(Person.isAdult(22))
+
+  csharp: |
+    using System;
+    
+    public class Person
+    {
+        public string Name { get; private set; }
+        public int Age { get; private set; }
+    
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+    
+        public static Person FromBirthYear(string name, int birthYear)
+        {
+            int currentYear = DateTime.Now.Year;
+            int age = currentYear - birthYear;
+            return new Person(name, age);
+        }
+    
+        public static bool IsAdult(int age)
+        {
+            return age > 18;
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person person1 = new Person("Mayank", 21);
+            Person person2 = Person.FromBirthYear("Mayank", 1996);
+    
+            Console.WriteLine(person1.Age);
+            Console.WriteLine(person2.Age);
+            Console.WriteLine(Person.IsAdult(22));
+        }
+    }
+
+- python: |
+    import re 
+    
+    regex = r"([a-zA-Z]+) (\d+)"
+      
+    match = re.search(regex, "I was born on June 24") 
+    if match != None: 
+        print ("Match at index %s, %s" % (match.start(), match.end())) 
+        print ("Full match: %s" % (match.group(0))) 
+        print ("Month: %s" % (match.group(1))) 
+        print ("Day: %s" % (match.group(2))) 
+      
+    else: 
+        print ("The regex pattern does not match.")
+
+  csharp: |
+    using System;
+    using System.Text.RegularExpressions;
+    
+    class Program
+    {
+        static void Main()
+        {
+            string pattern = @"([a-zA-Z]+) (\d+)";
+            string input = "I was born on June 24";
+            
+            Match match = Regex.Match(input, pattern);
+            
+            if (match.Success)
+            {
+                Console.WriteLine("Match at index {0}, {1}", match.Index, match.Index + match.Length);
+                Console.WriteLine("Full match: {0}", match.Groups[0].Value);
+                Console.WriteLine("Month: {0}", match.Groups[1].Value);
+                Console.WriteLine("Day: {0}", match.Groups[2].Value);
+            }
+            else
+            {
+                Console.WriteLine("The regex pattern does not match.");
+            }
+        }
+    }
+
+- python: |
+    class India():
+        def capital(self):
+            print("New Delhi is the capital of India.")
+      
+        def language(self):
+            print("Hindi is the most widely spoken language of India.")
+      
+        def type(self):
+            print("India is a developing country.")
+      
+    class USA():
+        def capital(self):
+            print("Washington, D.C. is the capital of USA.")
+      
+        def language(self):
+            print("English is the primary language of USA.")
+      
+        def type(self):
+            print("USA is a developed country.")
+     
+    def func(obj):
+        obj.capital()
+        obj.language()
+        obj.type()
+      
+    obj_ind = India()
+    obj_usa = USA()
+      
+    func(obj_ind)
+    func(obj_usa)
+
+  csharp: |
+    using System;
+    
+    public interface ICountry
+    {
+        void Capital();
+        void Language();
+        void Type();
+    }
+    
+    public class India : ICountry
+    {
+        public void Capital()
+        {
+            Console.WriteLine("New Delhi is the capital of India.");
+        }
+    
+        public void Language()
+        {
+            Console.WriteLine("Hindi is the most widely spoken language of India.");
+        }
+    
+        public void Type()
+        {
+            Console.WriteLine("India is a developing country.");
+        }
+    }
+    
+    public class USA : ICountry
+    {
+        public void Capital()
+        {
+            Console.WriteLine("Washington, D.C. is the capital of USA.");
+        }
+    
+        public void Language()
+        {
+            Console.WriteLine("English is the primary language of USA.");
+        }
+    
+        public void Type()
+        {
+            Console.WriteLine("USA is a developed country.");
+        }
+    }
+    
+    public class Program
+    {
+        public static void Func(ICountry obj)
+        {
+            obj.Capital();
+            obj.Language();
+            obj.Type();
+        }
+    
+        static void Main(string[] args)
+        {
+            India objInd = new India();
+            USA objUsa = new USA();
+      
+            Func(objInd);
+            Func(objUsa);
+        }
+    }
+
+- python: |
+    def min_deletion(a):
+        freq_map = {}
+        for item in a:
+            if item in freq_map:
+                freq_map[item] += 1
+            else:
+                freq_map[item] = 1
+    
+        ans = 0
+        for key, value in freq_map.items():
+            if key <= value:
+                ans += (value - key)
+            else:
+                ans += value
+    
+        return ans
+    
+    a = [2, 3, 2, 3, 4, 4, 4, 4, 5]
+    n = len(a)
+    print(min_deletion(a))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static int MinDeletion(int[] a, int n)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            for (int i = 0; i < n; i++)
+            {
+                if (map.ContainsKey(a[i]))
+                {
+                    map[a[i]] = map[a[i]] + 1;
+                }
+                else
+                {
+                    map.Add(a[i], 1);
+                }
+            }
+    
+            int ans = 0;
+            foreach (KeyValuePair<int, int> item in map)
+            {
+                int x = item.Key;
+                int frequency = item.Value;
+                if (x <= frequency)
+                {
+                    ans += (frequency - x);
+                }
+                else
+                {
+                    ans += frequency;
+                }
+            }
+    
+            return ans;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] a = { 2, 3, 2, 3, 4, 4, 4, 4, 5 };
+            int n = a.Length;
+            Console.WriteLine(MinDeletion(a, n));
+        }
+    }
+
+- python: |
+    class RecursiveFunction:
+        def __init__(self, n):
+            self.n = n
+            print("Recursive function initialized with n =", n)
+     
+        def run(self, n=None):
+            if n is None:
+                n = self.n
+            if n <= 0:
+                return
+            print("Running recursive function with n =", n)
+            self.run(n-1)
+     
+        def __del__(self):
+            print("Recursive function object destroyed")
+     
+    obj = RecursiveFunction(5)  
+    obj.run()
+    del obj
+
+  csharp: |
+    using System;
+    
+    class RecursiveFunction : IDisposable
+    {
+        private int n;
+    
+        public RecursiveFunction(int n)
+        {
+            this.n = n;
+            Console.WriteLine("Recursive function initialized with n = " + n);
+        }
+    
+        public void Run(int? n = null)
+        {
+            if (!n.HasValue)
+            {
+                n = this.n;
+            }
+    
+            if (n <= 0)
+            {
+                return;
+            }
+    
+            Console.WriteLine("Running recursive function with n = " + n);
+            Run(n.Value - 1);
+        }
+    
+        public void Dispose()
+        {
+            Console.WriteLine("Recursive function object destroyed");
+            GC.SuppressFinalize(this);
+        }
+    
+        ~RecursiveFunction()
+        {
+            Console.WriteLine("Recursive function object destroyed");
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (RecursiveFunction obj = new RecursiveFunction(5))
+            {
+                obj.Run();
+            }
+        }
+    }
+
+- python: |
+    import math
+     
+    print(math.sqrt(25)) 
+    print(math.pi) 
+    print(math.degrees(2))  
+    print(math.radians(60))  
+    print(math.sin(2))  
+    print(math.cos(0.5))  
+    print(math.tan(0.23)) 
+    print(math.factorial(4))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(Math.Sqrt(25));
+            Console.WriteLine(Math.PI);
+            Console.WriteLine(RadiansToDegrees(2));
+            Console.WriteLine(DegreesToRadians(60));
+            Console.WriteLine(Math.Sin(2));
+            Console.WriteLine(Math.Cos(0.5));
+            Console.WriteLine(Math.Tan(0.23));
+            Console.WriteLine(Factorial(4));
+        }
+    
+        static double RadiansToDegrees(double radians)
+        {
+            return radians * (180.0 / Math.PI);
+        }
+    
+        static double DegreesToRadians(double degrees)
+        {
+            return degrees * (Math.PI / 180.0);
+        }
+    
+        static int Factorial(int number)
+        {
+            if (number == 0) return 1;
+            int result = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                result *= i;
+            }
+            return result;
+        }
+    }
+
+- python: |
+    class GFG:
+        R = 3
+        C = 3
+    
+        @staticmethod
+        def swap(mat, row1, row2, col):
+            for i in range(col):
+                temp = mat[row1][i]
+                mat[row1][i] = mat[row2][i]
+                mat[row2][i] = temp
+    
+        @staticmethod
+        def display(mat, row, col):
+            for i in range(row):
+                for j in range(col):
+                    print(" " + str(mat[i][j]), end="")
+                print()
+    
+        @staticmethod
+        def rankOfMatrix(mat):
+            rank = GFG.C
+            for row in range(rank):
+                if mat[row][row] != 0:
+                    for col in range(GFG.R):
+                        if col != row:
+                            mult = mat[col][row] / mat[row][row]
+                            for i in range(rank):
+                                mat[col][i] -= mult * mat[row][i]
+                else:
+                    reduce = True
+                    for i in range(row + 1, GFG.R):
+                        if mat[i][row] != 0:
+                            GFG.swap(mat, row, i, rank)
+                            reduce = False
+                            break
+                    if reduce:
+                        rank -= 1
+                        for i in range(GFG.R):
+                            mat[i][row] = mat[i][rank]
+                    row -= 1
+            return rank
+    
+    if __name__ == "__main__":
+        mat = [[10, 20, 10], [-20, -30, 10], [30, 50, 0]]
+        print("Rank of the matrix is:", GFG.rankOfMatrix(mat))
+
+  csharp: |
+    using System;
+    
+    class GFG
+    {
+        static readonly int R = 3;
+        static readonly int C = 3;
+    
+        class Pair
+        {
+            public int First, Second;
+            public Pair(int first, int second)
+            {
+                First = first;
+                Second = second;
+            }
+        }
+    
+        static void Swap(int[,] mat, int row1, int row2, int col)
+        {
+            for (int i = 0; i < col; i++)
+            {
+                int temp = mat[row1, i];
+                mat[row1, i] = mat[row2, i];
+                mat[row2, i] = temp;
+            }
+        }
+    
+        static void Display(int[,] mat, int row, int col)
+        {
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < col; j++)
+                    Console.Write(" " + mat[i, j]);
+                Console.WriteLine();
+            }
+        }
+    
+        static int RankOfMatrix(int[,] mat)
+        {
+            int rank = C;
+            for (int row = 0; row < rank; row++)
+            {
+                if (mat[row, row] != 0)
+                {
+                    for (int col = 0; col < R; col++)
+                    {
+                        if (col != row)
+                        {
+                            double mult = (double)mat[col, row] / mat[row, row];
+                            for (int i = 0; i < rank; i++)
+                                mat[col, i] -= (int)(mult * mat[row, i]);
+                        }
+                    }
+                }
+                else
+                {
+                    bool reduce = true;
+                    for (int i = row + 1; i < R; i++)
+                    {
+                        if (mat[i, row] != 0)
+                        {
+                            Swap(mat, row, i, rank);
+                            reduce = false;
+                            break;
+                        }
+                    }
+                    if (reduce)
+                    {
+                        rank--;
+                        for (int i = 0; i < R; i++)
+                            mat[i, row] = mat[i, rank];
+                    }
+                    row--;
+                }
+            }
+            return rank;
+        }
+    
+        public static void Main(string[] args)
+        {
+            int[,] mat = new int[,] { { 10, 20, 10 }, { -20, -30, 10 }, { 30, 50, 0 } };
+            int n = R;
+            Console.WriteLine("Rank of the matrix is: " + RankOfMatrix(mat));
+        }
+    }
+
+- python: |
+    import time
+    obj = time.gmtime(1627987508.6496193)
+    time_str = time.asctime(obj)
+    print(time_str)
+    obj = time.localtime(1627987508.6496193)
+    time_str = time.asctime(obj)
+    print(time_str)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Main()
+        {
+            double unixTimeStamp = 1627987508.6496193;
+            DateTime dateTime = DateTimeOffset.FromUnixTimeSeconds((long)unixTimeStamp).DateTime;
+            string utcTimeStr = dateTime.ToUniversalTime().ToString("R");
+            Console.WriteLine(utcTimeStr);
+            string localTimeStr = dateTime.ToLocalTime().ToString("R");
+            Console.WriteLine(localTimeStr);
+        }
+    }
+
+- python: |
+    from queue import Queue
+    
+    q = Queue(maxsize = 3)
+    print(q.qsize()) 
+    q.put('a')
+    q.put('b')
+    q.put('c')
+    print("\nFull: ", q.full()) 
+    print("\nElements dequeued from the queue")
+    print(q.get())
+    print(q.get())
+    print(q.get())
+    print("\nEmpty: ", q.empty())
+    q.put(1)
+    print("\nEmpty: ", q.empty()) 
+    print("Full: ", q.full())
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static void Main()
+        {
+            Queue<string> q = new Queue<string>();
+            Console.WriteLine(q.Count);
+            q.Enqueue("a");
+            q.Enqueue("b");
+            q.Enqueue("c");
+            int maxSize = 3;
+            Console.WriteLine("\nFull: " + (q.Count == maxSize));
+            Console.WriteLine("\nElements dequeued from the queue");
+            Console.WriteLine(q.Dequeue());
+            Console.WriteLine(q.Dequeue());
+            Console.WriteLine(q.Dequeue());
+            Console.WriteLine("\nEmpty: " + (q.Count == 0));
+            q.Enqueue("1");
+            Console.WriteLine("\nEmpty: " + (q.Count == 0));
+            Console.WriteLine("Full: " + (q.Count == maxSize));
+        }
+    }
+
+- python: |
+    def canBeBalanced(s, n):
+        count = 0
+        count_1 = 0
+        for i in range(n):
+            if s[i] == '(':
+                count += 1
+            else:
+                count -= 1
+            count_1 = min(count_1, count)
+    
+        if count_1 >= -1 and count == 0:
+            return True
+        return False
+    
+    s = "( ) ) ( ) ("
+    n = len(s)
+    if canBeBalanced(s, n):
+        print("Yes")
+    else:
+        print("No")
+
+  csharp: |
+    using System;
+    
+    class GFG
+    {
+        static bool CanBeBalanced(string s, int n)
+        {
+            int count = 0, count_1 = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (s[i] == '(') count++;
+                else count--;
+                count_1 = Math.Min(count_1, count);
+            }
+    
+            if (count_1 >= -1 && count == 0) return true;
+            return false;
+        }
+    
+        static void Main(string[] args)
+        {
+            string s = "() )()(";
+            int n = s.Length;
+            if (CanBeBalanced(s, n))
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("No");
+        }
+    }
+
+- python: |
+    def getSum(n, d):
+        sum = 0
+        for i in range(n + 1):
+            if i % 10 == d:
+                sum += i
+        return sum
+    
+    if __name__ == "__main__":
+        n, d = 30, 3
+        print(getSum(n, d))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static long GetSum(int n, int d)
+        {
+            long sum = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 10 == d)
+                {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 30, d = 3;
+            Console.WriteLine(GetSum(n, d));
+        }
+    }
+
+- python: |
+    import socket
+     
+    name = input('enter your username : ')     
+    bytesToSend1 = str.encode(name)
+    password = input('enter your password : ')
+    bytesToSend2 = str.encode(password)
+     
+    serverAddrPort = ("127.0.0.1", 20001)
+    bufferSize = 1024
+     
+    UDPClientSocket = socket.socket(family = socket.AF_INET, type = socket.SOCK_DGRAM)  
+     
+    UDPClientSocket.sendto(bytesToSend1, serverAddrPort)  
+    UDPClientSocket.sendto(bytesToSend2, serverAddrPort)  
+     
+    msgFromServer = UDPClientSocket.recvfrom(bufferSize)  
+    msg = "Message from Server {}".format(msgFromServer[0].decode())  
+    print(msg)
+
+  csharp: |
+    using System;
+    using System.Text;
+    using System.Net;
+    using System.Net.Sockets;
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("enter your username: ");
+            string name = Console.ReadLine();
+            byte[] bytesToSend1 = Encoding.ASCII.GetBytes(name);
+    
+            Console.Write("enter your password: ");
+            string password = Console.ReadLine();
+            byte[] bytesToSend2 = Encoding.ASCII.GetBytes(password);
+    
+            IPAddress serverAddr = IPAddress.Parse("127.0.0.1");
+            IPEndPoint serverAddrPort = new IPEndPoint(serverAddr, 20001);
+    
+            Socket UDPClientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+    
+            UDPClientSocket.SendTo(bytesToSend1, serverAddrPort);
+            UDPClientSocket.SendTo(bytesToSend2, serverAddrPort);
+    
+            byte[] msgFromServer = new byte[1024];
+            EndPoint serverEP = new IPEndPoint(IPAddress.Any, 0);
+            int bytesReceived = UDPClientSocket.ReceiveFrom(msgFromServer, ref serverEP);
+    
+            string msg = "Message from Server " + Encoding.ASCII.GetString(msgFromServer, 0, bytesReceived);
+            Console.WriteLine(msg);
+    
+            UDPClientSocket.Close();
+        }
+    }
+
+- python: |
+    def getSum(n, d):
+        sum = 0
+        for i in range(n + 1):
+            if i % 10 == d:
+                sum += i
+        return sum
+    
+    if __name__ == "__main__":
+        n, d = 30, 3
+        print(getSum(n, d))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static long GetSum(int n, int d)
+        {
+            long sum = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 10 == d)
+                {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 30, d = 3;
+            Console.WriteLine(GetSum(n, d));
+        }
+    }
+
+- python: |
+    def pattern(N):
+        k, space, rows = 0, 1, N
+        for i in range(rows, 0, -1):
+            for j in range(1, i + 1):
+                print(' * ', end=' ')
+            if i != rows:
+                for k in range(1, space + 1):
+                    print('   ', end=' ')
+                space += 2
+            for j in range(i, 0, -1):
+                if j != rows:
+                    print(' * ', end=' ')
+            print()
+        print()
+    
+    N = 6
+    pattern(N)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void Pattern(int N)
+        {
+            int k = 0, space = 1, rows = N;
+            for (int i = rows; i >= 1; i--)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(" * ");
+                }
+                if (i != rows)
+                {
+                    for (k = 1; k <= space; k++)
+                    {
+                        Console.Write("   ");
+                    }
+                    space += 2;
+                }
+                for (int j = i; j >= 1; j--)
+                {
+                    if (j != rows)
+                        Console.Write(" * ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+    
+        static void Main(string[] args)
+        {
+            int N = 6;
+            Pattern(N);
+        }
+    }
+
+- python: |
+    import math
+    
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+    
+    def push(head, data):
+        if not head:
+            return Node(data)
+        new_node = Node(data)
+        new_node.next = head
+        head = new_node
+        return head
+    
+    def productOfNodes(head):
+        ptr = head
+        product = 1
+        while ptr:
+            product *= ptr.data
+            ptr = ptr.next
+        return product
+    
+    if __name__ == '__main__':
+        head = None
+        head = push(head, 7)
+        head = push(head, 6)
+        head = push(head, 8)
+        head = push(head, 4)
+        head = push(head, 1)
+        print("Product = {}".format(productOfNodes(head)))
+
+  csharp: |
+    using System;
+    
+    class Node
+    {
+        public int Data { get; set; }
+        public Node Next { get; set; }
+    
+        public Node(int data)
+        {
+            Data = data;
+            Next = null;
+        }
+    }
+    
+    class LinkedList
+    {
+        public Node Head { get; set; }
+    
+        public void Push(int data)
+        {
+            Node newNode = new Node(data) { Next = Head };
+            Head = newNode;
+        }
+    
+        public long ProductOfNodes()
+        {
+            Node ptr = Head;
+            long product = 1;
+            while (ptr != null)
+            {
+                product *= ptr.Data;
+                ptr = ptr.Next;
+            }
+            return product;
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LinkedList list = new LinkedList();
+            list.Push(7);
+            list.Push(6);
+            list.Push(8);
+            list.Push(4);
+            list.Push(1);
+            Console.WriteLine($"Product = {list.ProductOfNodes()}");
+        }
+    }
+
+- python: |
+    import uuid 
+    
+    id = uuid.uuid1() 
+    
+    print ("The Representations of uuid1() are : ") 
+    print ("byte Representation : ",end="") 
+    print (repr(id.bytes)) 
+    print ("int Representation : ",end="") 
+    print (id.int) 
+    print ("hex Representation : ",end="") 
+    print (id.hex) 
+    print("\n") 
+    print ("The Components of uuid1() are : ") 
+    print ("Version : ",end="") 
+    print (id.version) 
+    print ("Variant : ",end="") 
+    print (id.variant) 
+    print("\n") 
+    print ("The Fields of uuid1() are : ") 
+    print ("Fields : ",end="") 
+    print (id.fields) 
+    print("\n") 
+    print ("The time Component of uuid1() is : ") 
+    print ("Time component : ",end="") 
+    print (id.node) 
+
+  csharp: |
+    using System;
+    using System.Globalization;
+    
+    class Program
+    {
+        static void Main()
+        {
+            Guid id = Guid.NewGuid();
+    
+            Console.WriteLine("The Representations of uuid1() are : ");
+            Console.WriteLine("byte Representation : " + BitConverter.ToString(id.ToByteArray()));
+            Console.WriteLine("int Representation : " + id.ToString("N", CultureInfo.InvariantCulture));
+            Console.WriteLine("hex Representation : " + id.ToString("D", CultureInfo.InvariantCulture));
+            Console.WriteLine("\nThe Components of uuid1() are : ");
+            Console.WriteLine("Version : " + ((int)id.ToString("D", CultureInfo.InvariantCulture)[14]));
+            Console.WriteLine("Variant : " + (id.ToString("D", CultureInfo.InvariantCulture)[19]));
+            Console.WriteLine("\nThe Fields of uuid1() are : ");
+            Console.WriteLine("Fields : " + id.ToString("D", CultureInfo.InvariantCulture));
+            Console.WriteLine("\nThe time Component of uuid1() is : ");
+            Console.WriteLine("Time component : " + id.ToString("D", CultureInfo.InvariantCulture).Substring(24));
+        }
+    }
+
+- python: |
+    import math
+    
+    def productPrimeFactors(n):
+        product = 1
+        if n % 2 == 0:
+            product *= 2
+            while n % 2 == 0:
+                n = n // 2
+        for i in range(3, int(math.sqrt(n)) + 1, 2):
+            if n % i == 0:
+                product *= i
+                while n % i == 0:
+                    n = n // i
+        if n > 2:
+            product *= n
+        return product
+    
+    n = 44
+    print(int(productPrimeFactors(n)))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static long ProductPrimeFactors(int n)
+        {
+            long product = 1;
+            if (n % 2 == 0)
+            {
+                product *= 2;
+                while (n % 2 == 0)
+                    n /= 2;
+            }
+            
+            for (int i = 3; i <= Math.Sqrt(n); i += 2)
+            {
+                if (n % i == 0)
+                {
+                    product *= i;
+                    while (n % i == 0)
+                        n /= i;
+                }
+            }
+            
+            if (n > 2)
+                product *= n;
+                
+            return product;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 44;
+            Console.WriteLine(ProductPrimeFactors(n));
+        }
+    }
+
+- python: |
+    def printArr(arr, n):
+        for i in range(0, n):
+            print(arr[i], end=" ")
+        print(" ")
+    
+    def generateUtil(x, arr, curr_sum, curr_idx):
+        if curr_sum == x:
+            printArr(arr, curr_idx)
+            return
+        num = 1
+        while num <= x - curr_sum and (curr_idx == 0 or num <= arr[curr_idx - 1]):
+            arr[curr_idx] = num
+            generateUtil(x, arr, curr_sum + num, curr_idx + 1)
+            num += 1
+    
+    def generate(x):
+        arr = [0] * x
+        generateUtil(x, arr, 0, 0)
+    
+    x = 5
+    generate(x)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void PrintArr(int[] arr, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    
+        static void GenerateUtil(int x, int[] arr, int currSum, int currIdx)
+        {
+            if (currSum == x)
+            {
+                PrintArr(arr, currIdx);
+                return;
+            }
+            
+            int num = 1;
+            while (num <= x - currSum && (currIdx == 0 || num <= arr[currIdx - 1]))
+            {
+                arr[currIdx] = num;
+                GenerateUtil(x, arr, currSum + num, currIdx + 1);
+                num++;
+            }
+        }
+    
+        static void Generate(int x)
+        {
+            int[] arr = new int[x];
+            GenerateUtil(x, arr, 0, 0);
+        }
+    
+        static void Main(string[] args)
+        {
+            int x = 5;
+            Generate(x);
+        }
+    }
+
+- python: |
+    import math
+    
+    def isPower(x, y):
+        res1 = math.log(y) // math.log(x)
+        res2 = math.log(y) / math.log(x)
+        return 1 if (res1 == res2) else 0
+    
+    if __name__ == '__main__':
+        print(isPower(27, 729))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool IsPower(int x, int y)
+        {
+            int res1 = (int)(Math.Log(y) / Math.Log(x));
+            double res2 = Math.Log(y) / Math.Log(x);
+            
+            return res1 == res2;
+        }
+    
+        static void Main(string[] args)
+        {
+            if (IsPower(27, 729))
+                Console.WriteLine("1");
+            else
+                Console.WriteLine("0");
+        }
+    }
+
+- python: |
+    def printIndices(n, a):
+        for i in range(n):
+            print(a[i][1], end=" ")
+        print("\n", end="")
+    
+    def printPermutations(n, a, k):
+        arr = [[0, 0] for i in range(n)]
+        for i in range(n):
+            arr[i][0] = a[i]
+            arr[i][1] = i
+        arr.sort(reverse=False)
+        count = 1
+        for i in range(1, n):
+            if (arr[i][0] == arr[i-1][0]):
+                count += 1
+        if (count < k):
+            print("-1", end=" ")
+            return
+        for i in range(k-1):
+            printIndices(n, arr)
+            for j in range(1, n):
+                if (arr[j][0] == arr[j-1][0]):
+                    temp = arr[j]
+                    arr[j] = arr[j-1]
+                    arr[j-1] = temp
+                    break
+        printIndices(n, arr)
+    
+    if __name__ == '__main__':
+        a = [1, 3, 3, 1]
+        n = len(a)
+        k = 3
+        printPermutations(n, a, k)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    public class Program
+    {
+        public static void PrintIndices(int n, Tuple<int, int>[] a)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(a[i].Item2 + " ");
+            }
+            Console.WriteLine();
+        }
+    
+        public static void PrintPermutations(int n, int[] a, int k)
+        {
+            var arr = new Tuple<int, int>[n];
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = new Tuple<int, int>(a[i], i);
+            }
+            Array.Sort(arr, (x, y) => x.Item1.CompareTo(y.Item1));
+            int count = 1;
+            for (int i = 1; i < n; i++)
+            {
+                if (arr[i].Item1 == arr[i - 1].Item1)
+                {
+                    count++;
+                }
+            }
+            if (count < k)
+            {
+                Console.WriteLine("-1");
+                return;
+            }
+            for (int i = 0; i < k - 1; i++)
+            {
+                PrintIndices(n, arr);
+                for (int j = 1; j < n; j++)
+                {
+                    if (arr[j].Item1 == arr[j - 1].Item1)
+                    {
+                        var temp = arr[j];
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = temp;
+                        break;
+                    }
+                }
+            }
+            PrintIndices(n, arr);
+        }
+    
+        public static void Main(string[] args)
+        {
+            int[] a = { 1, 3, 3, 1 };
+            int n = a.Length;
+            int k = 3;
+            PrintPermutations(n, a, k);
+        }
+    }
+
+- python: |
+    def toDecimal(binary, i=0):
+        n = len(binary)
+        if i == n - 1:
+            return int(binary[i]) - 0
+        return ((int(binary[i]) - 0) << (n - i - 1)) + toDecimal(binary, i + 1)
+    
+    if __name__ == "__main__":
+        binary = "1010"
+        print(toDecimal(binary))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int ToDecimal(string binary, int i = 0)
+        {
+            int n = binary.Length;
+            if (i == n - 1)
+                return binary[i] - '0';
+            return ((binary[i] - '0') << (n - i - 1)) + ToDecimal(binary, i + 1);
+        }
+    
+        static void Main(string[] args)
+        {
+            string binary = "1010";
+            Console.WriteLine(ToDecimal(binary));
+        }
+    }
+
+- python: |
+    MAX = 100005
+    fibonacci = set()
+    
+    def createHash():
+        global fibonacci
+        prev, curr = 0, 1
+        fibonacci.add(prev)
+        fibonacci.add(curr)
+        while curr <= MAX:
+            temp = curr + prev
+            if temp <= MAX:
+                fibonacci.add(temp)
+            prev = curr
+            curr = temp
+    
+    def checkArray(arr, n):
+        sum = 0
+        for i in range(n):
+            if arr[i] in fibonacci:
+                sum += arr[i]
+        if sum in fibonacci:
+            return True
+        return False
+    
+    if __name__ == "__main__":
+        arr = [1, 2, 4, 8, 2]
+        n = len(arr)
+        createHash()
+        if checkArray(arr, n):
+            print("Yes")
+        else:
+            print("No")
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        const int MAX = 100005;
+        static HashSet<int> fibonacci = new HashSet<int>();
+    
+        static void CreateHash()
+        {
+            int prev = 0, curr = 1;
+            fibonacci.Add(prev);
+            fibonacci.Add(curr);
+            while (curr <= MAX)
+            {
+                int temp = curr + prev;
+                if (temp <= MAX)
+                {
+                    fibonacci.Add(temp);
+                }
+                prev = curr;
+                curr = temp;
+            }
+        }
+    
+        static bool CheckArray(int[] arr, int n)
+        {
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (fibonacci.Contains(arr[i]))
+                {
+                    sum += arr[i];
+                }
+            }
+            if (fibonacci.Contains(sum))
+            {
+                return true;
+            }
+            return false;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, 2, 4, 8, 2 };
+            int n = arr.Length;
+            CreateHash();
+            if (CheckArray(arr, n))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
+    }
+
+- python: |
+    def isAMultipleOf4(n):
+        if (n & 3) == 0:
+            return "Yes"
+        return "No"
+    
+    if __name__ == "__main__":
+        n = 16
+        print(isAMultipleOf4(n))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static bool IsAMultipleOf4(int n)
+        {
+            return (n & 3) == 0;
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 16;
+            Console.WriteLine(IsAMultipleOf4(n) ? "Yes" : "No");
+        }
+    }
+
+- python: |
+    def nthHarmonic(N):
+        harmonic = 1.00
+        for i in range(2, N + 1):
+            harmonic += 1 / i
+        return harmonic
+    
+    if __name__ == "__main__":
+        N = 8
+        print(round(nthHarmonic(N), 5))
+
+  csharp: |
+    using System;
+    
+    class GFG
+    {
+        static double NthHarmonic(int N)
+        {
+            double harmonic = 1.0;
+            for (int i = 2; i <= N; i++)
+            {
+                harmonic += 1.0 / i;
+            }
+            return harmonic;
+        }
+    
+        static void Main(string[] args)
+        {
+            int N = 8;
+            Console.WriteLine(Math.Round(NthHarmonic(N), 5));
+        }
+    }
+
+- python: |
+    def cubeSum(n):
+        return 2 * n * n * (n + 1) * (n + 1)
+    
+    print(cubeSum(8))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        public static int CubeSum(int n)
+        {
+            return 2 * n * n * (n + 1) * (n + 1);
+        }
+    
+        static void Main(string[] args)
+        {
+            int a = 8;
+            Console.WriteLine(CubeSum(a));
+        }
+    }
+
+- python: |
+    def catalan(n):
+        if n == 0 or n == 1:
+            return 1
+        catalan = [0 for i in range(n + 1)]
+        catalan[0], catalan[1] = 1, 1
+        for i in range(2, n + 1):
+            for j in range(i):
+                catalan[i] += catalan[j] * catalan[i - j - 1]
+        return catalan[n]
+    
+    for i in range(10):
+        print(catalan(i), end=" ")
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static int Catalan(int n)
+        {
+            if (n == 0 || n == 1)
+            {
+                return 1;
+            }
+            
+            int[] catalan = new int[n + 1];
+            catalan[0] = 1;
+            catalan[1] = 1;
+            
+            for (int i = 2; i <= n; i++)
+            {
+                catalan[i] = 0;
+                for (int j = 0; j < i; j++)
+                {
+                    catalan[i] += catalan[j] * catalan[i - j - 1];
+                }
+            }
+            
+            return catalan[n];
+        }
+        
+        static void Main(string[] args)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(Catalan(i) + " ");
+            }
+        }
+    }
+
+- python: |
+    class node:
+        def __init__(self, data):
+            self.data = data
+            self.next = next
+    
+    def push(head_ref, new_data):
+        new_node = node(0)
+        new_node.data = new_data
+        new_node.next = (head_ref)
+        (head_ref) = new_node
+        return head_ref
+    
+    def kAltReverse(head, k):
+        return _kAltReverse(head, k, True)
+    
+    def _kAltReverse(Node, k, b):
+        if (Node == None):
+            return None
+        count = 1
+        prev = None
+        current = Node
+        next = None
+        while (current != None and count <= k):
+            next = current.next
+            if (b == True):
+                current.next = prev
+            prev = current
+            current = next
+            count = count + 1
+        if (b == True):
+            Node.next = _kAltReverse(current, k, not b)
+            return prev
+        else:
+            prev.next = _kAltReverse(current, k, not b)
+            return Node
+    
+    def printList(node):
+        count = 0
+        while (node != None):
+            print(node.data, end=" ")
+            node = node.next
+            count = count + 1
+    
+    head = None
+    i = 20
+    while (i > 0):
+        head = push(head, i)
+        i = i - 1
+    
+    print("Given linked list ")
+    printList(head)
+    head = kAltReverse(head, 3)
+    print("\nModified Linked list ")
+    printList(head)
+
+  csharp: |
+    using System;
+    
+    public class Node
+    {
+        public int Data;
+        public Node Next;
+        public Node(int data)
+        {
+            Data = data;
+            Next = null;
+        }
+    }
+    
+    public class LinkedList
+    {
+        Node head;
+    
+        public void Push(int new_data)
+        {
+            Node new_node = new Node(new_data);
+            new_node.Next = head;
+            head = new_node;
+        }
+    
+        public Node KAltReverse(Node head, int k)
+        {
+            return KAltReverseUtil(head, k, true);
+        }
+    
+        private Node KAltReverseUtil(Node node, int k, bool b)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+            int count = 1;
+            Node prev = null;
+            Node current = node;
+            Node next = null;
+            while (current != null && count <= k)
+            {
+                next = current.Next;
+                if (b)
+                {
+                    current.Next = prev;
+                }
+                prev = current;
+                current = next;
+                count++;
+            }
+            if (b)
+            {
+                node.Next = KAltReverseUtil(current, k, !b);
+                return prev;
+            }
+            else
+            {
+                prev.Next = KAltReverseUtil(current, k, !b);
+                return node;
+            }
+        }
+    
+        public void PrintList()
+        {
+            Node temp = head;
+            while (temp != null)
+            {
+                Console.Write(temp.Data + " ");
+                temp = temp.Next;
+            }
+            Console.WriteLine();
+        }
+        
+        public static void Main(String[] args)
+        {
+            LinkedList list = new LinkedList();
+            for (int i = 20; i > 0; i--)
+            {
+                list.Push(i);
+            }
+            Console.WriteLine("Given linked list ");
+            list.PrintList();
+            list.head = list.KAltReverse(list.head, 3);
+            Console.WriteLine("\nModified Linked list ");
+            list.PrintList();
+        }
+    }
+
+- python: |
+    using System;
+    
+    class Program
+    {
+        static void LeastPrimeFactor(int n)
+        {
+            int[] leastPrime = new int[n + 1];
+            leastPrime[1] = 1;
+    
+            for (int i = 2; i <= n; i++)
+            {
+                if (leastPrime[i] == 0)
+                {
+                    leastPrime[i] = i;
+                    for (int j = 2 * i; j <= n; j += i)
+                    {
+                        if (leastPrime[j] == 0)
+                        {
+                            leastPrime[j] = i;
+                        }
+                    }
+                }
+            }
+    
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Least Prime factor of {i} : {leastPrime[i]}");
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 10;
+            LeastPrimeFactor(n);
+        }
+    }
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        static void LeastPrimeFactor(int n)
+        {
+            int[] leastPrime = new int[n + 1];
+            leastPrime[1] = 1;
+    
+            for (int i = 2; i <= n; i++)
+            {
+                if (leastPrime[i] == 0)
+                {
+                    leastPrime[i] = i;
+                    for (int j = 2 * i; j <= n; j += i)
+                    {
+                        if (leastPrime[j] == 0)
+                        {
+                            leastPrime[j] = i;
+                        }
+                    }
+                }
+            }
+    
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Least Prime factor of {i} : {leastPrime[i]}");
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int n = 10;
+            LeastPrimeFactor(n);
+        }
+    }
+
+- python: |
+    def minSteps(arr, n):
+        min_Steps = 0
+        for i in range(n):
+            if i > 0:
+                min_Steps += abs(arr[i] - arr[i - 1])
+            else:
+                min_Steps += abs(arr[i])
+        return min_Steps
+    
+    if __name__ == '__main__':
+        arr = [1, 2, 2, 1]
+        n = len(arr)
+        print(minSteps(arr, n))
+
+  csharp: |
+    using System;
+    
+    class Program {
+        public static int MinSteps(int[] arr, int n) {
+            int minSteps = 0;
+            for (int i = 0; i < n; i++) {
+                if (i > 0)
+                    minSteps += Math.Abs(arr[i] - arr[i - 1]);
+                else
+                    minSteps += Math.Abs(arr[i]);
+            }
+            return minSteps;
+        }
+    
+        static void Main(string[] args) {
+            int[] arr = { 1, 2, 2, 1 };
+            int n = arr.Length;
+            Console.WriteLine(MinSteps(arr, n));
+        }
+    }
+
+- python: |
+    def binarysearch(v, x):
+        low = 0
+        high = len(v) - 1
+        while low <= high:
+            mid = int((low + high) / 2)
+            if v[mid] <= x:
+                low = mid + 1
+            elif v[mid] > x and v[mid - 1] <= x:
+                return mid
+            elif v[mid] > x and mid == 0:
+                return mid
+            else:
+                high = mid - 1
+        return -1
+    
+    def CountContiguousParts(arr, n):
+        count = 0
+        prefix = [0 for i in range(n)]
+        prefix[0] = arr[0]
+        for i in range(1, n, 1):
+            prefix[i] = prefix[i - 1] + arr[i]
+        total_sum = prefix[n - 1]
+        if total_sum % 3 != 0:
+            return 0
+        suffix = [0 for i in range(n)]
+        suffix[n - 1] = arr[n - 1]
+        i = n - 2
+        while i >= 0:
+            suffix[i] = suffix[i + 1] + arr[i]
+            i -= 1
+        v = []
+        for i in range(n):
+            if suffix[i] == int(total_sum / 3):
+                v.append(i)
+        for i in range(n):
+            if prefix[i] == int(total_sum / 3):
+                res = binarysearch(v, i + 1)
+                if res != -1:
+                    count += len(v) - res
+        return count
+    
+    if __name__ == '__main__':
+        arr = [1, 2, 3, 0, 3]
+        n = len(arr)
+        print(CountContiguousParts(arr, n))
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static int BinarySearch(List<int> v, int x)
+        {
+            int low = 0, high = v.Count - 1;
+            while (low <= high)
+            {
+                int mid = (low + high) / 2;
+                if (v[mid] <= x)
+                    low = mid + 1;
+                else if (v[mid] > x && (mid == 0 || v[mid - 1] <= x))
+                    return mid;
+                else
+                    high = mid - 1;
+            }
+            return -1;
+        }
+    
+        static int CountContiguousParts(int[] arr, int n)
+        {
+            int count = 0;
+            int[] prefix = new int[n];
+            prefix[0] = arr[0];
+            for (int i = 1; i < n; i++)
+                prefix[i] = prefix[i - 1] + arr[i];
+    
+            int totalSum = prefix[n - 1];
+            if (totalSum % 3 != 0)
+                return 0;
+    
+            int[] suffix = new int[n];
+            suffix[n - 1] = arr[n - 1];
+            for (int i = n - 2; i >= 0; i--)
+                suffix[i] = suffix[i + 1] + arr[i];
+    
+            List<int> v = new List<int>();
+            for (int i = 0; i < n; i++)
+                if (suffix[i] == totalSum / 3)
+                    v.Add(i);
+    
+            for (int i = 0; i < n; i++)
+            {
+                if (prefix[i] == totalSum / 3)
+                {
+                    int res = BinarySearch(v, i + 1);
+                    if (res != -1)
+                        count += v.Count - res;
+                }
+            }
+            return count;
+        }
+    
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, 2, 3, 0, 3 };
+            int n = arr.Length;
+            Console.WriteLine(CountContiguousParts(arr, n));
+        }
+    }
+
+- python: |
+    def findMaxGCD(arr, n):
+        high = 0
+        for i in range(0, n):
+            high = max(high, arr[i])
+        count = [0] * (high + 1)
+        for i in range(0, n):
+            count[arr[i]] += 1
+        counter = 0
+        for i in range(high, 0, -1):
+            j = i
+            while (j <= high):
+                if (count[j] > 0):
+                    counter += count[j]
+                j += i
+                if (counter == 2):
+                    return i
+            counter = 0
+        return 1
+    
+    arr = [1, 2, 4, 8, 8, 12]
+    n = len(arr)
+    print(findMaxGCD(arr, n))
+
+  csharp: |
+    using System;
+    
+    class Program {
+        public static int FindMaxGCD(int[] arr, int n) {
+            int high = 0;
+            foreach (int i in arr) {
+                high = Math.Max(high, i);
+            }
+    
+            int[] count = new int[high + 1];
+            foreach (int i in arr) {
+                count[i] += 1;
+            }
+    
+            int counter = 0;
+            for (int i = high; i >= 1; i--) {
+                int j = i;
+                while (j <= high) {
+                    if (count[j] > 0) {
+                        counter += count[j];
+                    }
+                    j += i;
+                    if (counter == 2) {
+                        return i;
+                    }
+                }
+                counter = 0;
+            }
+            return 1;
+        }
+    
+        static void Main(string[] args) {
+            int[] arr = { 1, 2, 4, 8, 8, 12 };
+            int n = arr.Length;
+            Console.WriteLine(FindMaxGCD(arr, n));
+        }
+    }
+
+- python: |
+    def countEle(s, a, N):
+        mp = {}
+        for i in range(0, N):
+            num = a[i]
+            if num in mp:
+                print("0", end=" ")
+            else:
+                cnt = 0
+                while s[-1] != num:
+                    mp[s.pop()] = True
+                    cnt += 1
+                s.pop()
+                cnt += 1
+                print(cnt, end=" ")
+    
+    if __name__ == "__main__":
+        N = 5
+        s = []
+        s.append(1)
+        s.append(2)
+        s.append(3)
+        s.append(4)
+        s.append(6)
+        a = [6, 3, 4, 1, 2]
+        countEle(s, a, N)
+
+  csharp: |
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        public static void CountEle(Stack<int> s, int[] a, int N)
+        {
+            Dictionary<int, bool> mp = new Dictionary<int, bool>();
+            for (int i = 0; i < N; i++)
+            {
+                int num = a[i];
+                if (mp.ContainsKey(num))
+                {
+                    Console.Write("0 ");
+                }
+                else
+                {
+                    int cnt = 0;
+                    while (s.Peek() != num)
+                    {
+                        mp[s.Pop()] = true;
+                        cnt++;
+                    }
+                    s.Pop();
+                    cnt++;
+                    Console.Write($"{cnt} ");
+                }
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            int N = 5;
+            Stack<int> s = new Stack<int>();
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+            s.Push(4);
+            s.Push(6);
+            int[] a = { 6, 3, 4, 1, 2 };
+            CountEle(s, a, N);
+        }
+    }
+
+- python: |
+    def bestApproximate(x, y, n):
+        sum_x = 0
+        sum_y = 0
+        sum_xy = 0
+        sum_x2 = 0
+        for i in range(0, n):
+            sum_x += x[i]
+            sum_y += y[i]
+            sum_xy += x[i] * y[i]
+            sum_x2 += pow(x[i], 2)
+        m = (float)((n * sum_xy - sum_x * sum_y) / (n * sum_x2 - pow(sum_x, 2)))
+        c = (float)(sum_y - m * sum_x) / n
+        print("m = ", m)
+        print("c = ", c)
+    
+    x = [1, 2, 3, 4, 5]
+    y = [14, 27, 40, 55, 68]
+    n = len(x)
+    bestApproximate(x, y, n)
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        public static void BestApproximate(int[] x, int[] y, int n)
+        {
+            double sumX = 0;
+            double sumY = 0;
+            double sumXY = 0;
+            double sumX2 = 0;
+            
+            for(int i = 0; i < n; i++)
+            {
+                sumX += x[i];
+                sumY += y[i];
+                sumXY += x[i] * y[i];
+                sumX2 += Math.Pow(x[i], 2);
+            }
+            
+            double m = (n * sumXY - sumX * sumY) / (n * sumX2 - Math.Pow(sumX, 2));
+            double c = (sumY - m * sumX) / n;
+            
+            Console.WriteLine("m = " + m);
+            Console.WriteLine("c = " + c);
+        }
+        
+        static void Main(string[] args)
+        {
+            int[] x = { 1, 2, 3, 4, 5 };
+            int[] y = { 14, 27, 40, 55, 68 };
+            int n = x.Length;
+            BestApproximate(x, y, n);
+        }
+    }
+
+- python: |
+    from math import log2
+    
+    MAX = 100001
+    dp = [0] * MAX
+    
+    def probability(k, n):
+        ans = 0
+        for i in range(k, n + 1):
+            res = dp[n] - dp[i] - dp[n - i] - n
+            ans = ans + pow(2.0, res)
+        return ans
+    
+    def precompute():
+        for i in range(2, MAX):
+            dp[i] = log2(i) + dp[i - 1]
+    
+    if __name__ == '__main__':
+        precompute()
+        print(probability(2, 3))
+        print(probability(3, 6))
+        print(probability(500, 1000))
+
+  csharp: |
+    using System;
+    
+    class Program
+    {
+        const int MAX = 100001;
+        static double[] dp = new double[MAX];
+    
+        static void Main(string[] args)
+        {
+            Precompute();
+            Console.WriteLine(Probability(2, 3));
+            Console.WriteLine(Probability(3, 6));
+            Console.WriteLine(Probability(500, 1000));
+        }
+    
+        static void Precompute()
+        {
+            for (int i = 2; i < MAX; i++)
+            {
+                dp[i] = Math.Log(i, 2) + dp[i - 1];
+            }
+        }
+    
+        static double Probability(int k, int n)
+        {
+            double ans = 0;
+            for (int i = k; i <= n; i++)
+            {
+                double res = dp[n] - dp[i] - dp[n - i] - n;
+                ans += Math.Pow(2.0, res);
+            }
+            return ans;
+        }
+    }
+
+- python: |
+    def ___gcd(a, b):
+        if (a == 0 or b == 0):
+            return 0
+        if (a == b):
+            return a
+        if (a > b):
+            return ___gcd(a - b, b)
+        return ___gcd(a, b - a)
+    
+    def lcmOfArray(arr, n):
+        ans = arr[0]
+        for i in range(1, n):
+            ans = (arr[i] * ans) // ___gcd(arr[i], ans)
+        return ans
+    
+    def checkArray(arr, prime, n, m):
+        lcm = lcmOfArray(arr, n)
+        for i in range(n):
+            val = lcm // arr[i]
+            for j in range(m):
+                while (val % prime[j] == 0):
+                    val = val // prime[j]
+            if (val != 1):
+                return False
+        return True
+    
+    arr = [50, 200]
+    prime = [2, 3]
+    n = len(arr)
+    m = len(prime)
+    if (checkArray(arr, prime, n, m)):
+        print("Yes")
+    else:
+        print("No")
+
+  csharp: |
+    using System;
+    
+    class GFG
+    {
+        static int Gcd(int a, int b)
+        {
+            if (a == 0 || b == 0) return 0;
+            if (a == b) return a;
+            if (a > b) return Gcd(a - b, b);
+            return Gcd(a, b - a);
+        }
+    
+        static int LcmOfArray(int[] arr, int n)
+        {
+            int ans = arr[0];
+            for (int i = 1; i < n; i++)
+            {
+                ans = (arr[i] * ans) / Gcd(arr[i], ans);
+            }
+            return ans;
+        }
+    
+        static bool CheckArray(int[] arr, int[] prime, int n, int m)
+        {
+            int lcm = LcmOfArray(arr, n);
+            for (int i = 0; i < n; i++)
+            {
+                int val = lcm / arr[i];
+                for (int j = 0; j < m; j++)
+                {
+                    while (val % prime[j] == 0)
+                    {
+                        val = val / prime[j];
+                    }
+                }
+                if (val != 1) return false;
+            }
+            return true;
+        }
+    
+        public static void Main(string[] args)
+        {
+            int[] arr = { 50, 200 };
+            int[] prime = { 2, 3 };
+            int n = arr.Length;
+            int m = prime.Length;
+    
+            if (CheckArray(arr, prime, n, m))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
+    }
+
+
+
